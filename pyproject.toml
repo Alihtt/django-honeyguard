@@ -1,0 +1,73 @@
+[build-system]
+requires = ["hatchling>=1.18.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "django-honeyguard"
+version = "0.1.0"
+description = "Reusable Django app providing multi-CMS honeypot login traps with DB logging and email alerts."
+readme = "README.md"
+requires-python = ">=3.13"
+license = { text = "MIT" }
+authors = [
+  { name = "Ali Hatami", email = "aliht.workspace@gmail.com" }
+]
+keywords = ["django", "security", "honeypot", "wordpress", "admin", "wp-admin"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Web Environment",
+  "Framework :: Django",
+  "Framework :: Django :: 4.2",
+  "Framework :: Django :: 5.0",
+  "Framework :: Django :: 5.1",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Security",
+]
+dependencies = [
+  "django>=4.0,<6",
+]
+
+[project.urls]
+Homepage = "https://github.com/alihtt/django-honeyguard"
+Issues = "https://github.com/yourname/django-honeyguard/issues"
+Documentation = "https://readthedocs.io/"
+
+[tool.hatch.build]
+include = [
+  "django_honeyguard/**",
+  "README.md",
+  "LICENSE",
+  "docs/**",
+]
+exclude = [
+  "tests/**",
+  "example/**",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["django_honeyguard"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --cov=django_honeyguard --cov-report=term-missing"
+testpaths = ["tests"]
+
+[tool.flake8]
+max-line-length = 100
+extend-ignore = ["E203", "W503"]
+
+[tool.uv]
+dev-dependencies = [
+  "pytest>=7",
+  "pytest-django>=4.5",
+  "pytest-cov>=4",
+  "flake8>=6",
+  "factory-boy>=3.2",
+]

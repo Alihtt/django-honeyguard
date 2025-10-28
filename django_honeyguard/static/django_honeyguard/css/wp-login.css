@@ -1,0 +1,265 @@
+/* WordPress Login Page Styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #f0f0f1;
+  height: 100%;
+}
+
+body {
+  background: #f0f0f1;
+  min-height: 100vh;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu,
+    Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 13px;
+  line-height: 1.4em;
+  color: #3c434a;
+}
+
+body.login {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0;
+}
+
+#login {
+  width: 320px;
+  padding: 5% 0 0;
+  margin: auto;
+}
+
+#login h1 {
+  text-align: center;
+}
+
+#login h1 a {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="%23464646" d="M20 10c0-5.51-4.49-10-10-10C4.48 0 0 4.49 0 10c0 5.52 4.48 10 10 10 5.51 0 10-4.48 10-10zM7.78 15.37L4.37 6.22c.55-.02 1.17-.08 1.17-.08.5-.06.44-1.13-.06-1.11 0 0-1.45.11-2.37.11-.18 0-.37 0-.58-.01C4.12 2.69 6.87 1.11 10 1.11c2.33 0 4.45.87 6.05 2.34-.68-.11-1.65.39-1.65 1.58 0 .74.43 1.36.89 2.1.38.56.63 1.25.63 2.21 0 .88-.33 1.9-.76 3.16L13.93 15.5l-6.15-.13zM2.69 6.7L6.8 18.06c-2.52-1.5-4.25-4.18-4.25-7.25 0-1.43.37-2.78 1.02-3.95l.12-.16zm10.08 1.26l.7 2.33c.39 1.28.7 2.46.7 3.45 0 .36-.03.7-.09 1.02-1.06.51-2.23.8-3.46.8-1.11 0-2.15-.25-3.09-.69l2.92-8.48.32-.43z"/></svg>');
+  background-size: 84px;
+  background-position: center top;
+  background-repeat: no-repeat;
+  color: #3c434a;
+  height: 84px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.3em;
+  margin: 0 auto 25px;
+  padding: 0;
+  text-decoration: none;
+  width: 84px;
+  text-indent: -9999px;
+  outline: 0;
+  overflow: hidden;
+  display: block;
+}
+
+#loginform {
+  margin-top: 20px;
+  margin-left: 0;
+  padding: 26px 24px 34px;
+  font-weight: 400;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #c3c4c7;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+#loginform p {
+  margin-bottom: 16px;
+}
+
+#loginform p.submit {
+  margin-bottom: 0;
+  padding: 0;
+}
+
+#loginform label {
+  color: #2c3338;
+  font-size: 14px;
+  line-height: 1.5;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.input {
+  border: 1px solid #8c8f94;
+  border-radius: 0;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.07);
+  background-color: #fff;
+  color: #2c3338;
+  outline: 0;
+  transition: 50ms border-color ease-in-out;
+  font-size: 24px;
+  line-height: 1.33333333;
+  margin: 0;
+  padding: 3px 5px;
+  width: 100%;
+}
+
+.input:focus {
+  border-color: #2271b1;
+  box-shadow: 0 0 0 1px #2271b1;
+  outline: 2px solid transparent;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  -webkit-appearance: none;
+}
+
+.forgetmenot {
+  font-weight: 400;
+  float: left;
+  margin-bottom: 0;
+}
+
+.forgetmenot label {
+  font-size: 12px;
+  line-height: 19px;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
+input[type="checkbox"] {
+  border: 1px solid #8c8f94;
+  border-radius: 4px;
+  background: #fff;
+  color: #2c3338;
+  clear: none;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 0;
+  height: 1rem;
+  margin: -0.25rem 0.25rem 0 0;
+  outline: 0;
+  padding: 0 !important;
+  text-align: center;
+  vertical-align: middle;
+  width: 1rem;
+  min-width: 1rem;
+  -webkit-appearance: none;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: 0.05s border-color ease-in-out;
+}
+
+input[type="checkbox"]:checked:before {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M14.83 4.89l1.34.94-5.81 8.38H9.02L5.78 9.67l1.34-1.25 2.57 2.4z" fill="%232271b1"/></svg>');
+  float: left;
+  display: inline-block;
+  vertical-align: middle;
+  width: 1rem;
+  speak: never;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input[type="checkbox"]:focus {
+  border-color: #2271b1;
+  box-shadow: 0 0 0 1px #2271b1;
+}
+
+.button {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 2.15384615;
+  min-height: 30px;
+  margin: 0;
+  padding: 0 10px;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-appearance: none;
+  border-radius: 3px;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.button-primary {
+  background: #2271b1;
+  border-color: #2271b1;
+  color: #fff;
+  text-decoration: none;
+  text-shadow: none;
+}
+
+.button-primary:hover {
+  background: #135e96;
+  border-color: #135e96;
+  color: #fff;
+}
+
+.button-primary:focus {
+  background: #135e96;
+  border-color: #0a4b78;
+  color: #fff;
+  box-shadow:
+    0 0 0 1px #fff,
+    0 0 0 3px #2271b1;
+}
+
+.button-large {
+  height: 30px;
+  line-height: 28px;
+  padding: 0 12px;
+  font-size: 14px;
+}
+
+#wp-submit {
+  float: right;
+}
+
+#login_error {
+  border-left: 4px solid #d63638;
+  padding: 12px;
+  margin-left: 0;
+  margin-bottom: 20px;
+  background: #fff;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+  word-wrap: break-word;
+}
+
+#login_error strong {
+  color: #d63638;
+}
+
+#nav,
+#backtoblog {
+  font-size: 13px;
+  padding: 0 24px;
+}
+
+#nav {
+  margin: 24px 0 0;
+}
+
+#backtoblog {
+  margin: 16px 0 0;
+}
+
+#nav a,
+#backtoblog a {
+  color: #50575e;
+  text-decoration: none;
+}
+
+#nav a:hover,
+#backtoblog a:hover {
+  color: #135e96;
+}
+
+.clear {
+  clear: both;
+}
+
+/* Responsive */
+@media screen and (max-width: 782px) {
+  #login {
+    margin-top: 0;
+    padding: 16px;
+  }
+}

@@ -1,0 +1,26 @@
+{% extends 'admin/login.html' %}
+{% load i18n %}
+{% block branding %}
+    <h1 id="site-name">
+        <a href="{% url 'django_honeyguard:fake_django_admin' %}">Django administration</a>
+    </h1>
+{% endblock %}
+{% block content %}
+    <div id="content-main">
+        <form action="{% url 'django_honeyguard:fake_django_admin' %}"
+              method="post"
+              id="login-form">
+            {% csrf_token %}
+            <div class="form-row">{{ form.username.errors }} {{ form.username.label_tag }} {{ form.username }}</div>
+            <div class="form-row">
+                {{ form.password.errors }} {{ form.password.label_tag }} {{ form.password }}
+                <input type="hidden" name="next" value="{{ next }}" />
+                <input type="hidden" name="form_render_time" value="{{ form_render_time }}" />
+            </div>
+            <div style="display: none">{{ form.hp.as_widget }}</div>
+            <div class="submit-row">
+                <input type="submit" value="Log in" />
+            </div>
+        </form>
+    </div>
+{% endblock %}
