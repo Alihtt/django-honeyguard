@@ -1,0 +1,42 @@
+/* Custom styles for django-honeyguard documentation */
+
+/* Highlight code blocks */
+.highlight {
+    background-color: #f8f9fa;
+    border-left: 4px solid #2980B9;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+/* Style warning/note boxes */
+.warning,
+.note,
+.important {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+/* Better code syntax highlighting */
+code.literal {
+    background-color: #f4f4f4;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+/* Table styling */
+table.docutils {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table.docutils th {
+    background-color: #2980B9;
+    color: white;
+    padding: 8px;
+}
+
+table.docutils td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
