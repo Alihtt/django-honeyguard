@@ -1,6 +1,6 @@
 """Business logic for HoneyGuard honeypot triggers."""
 
-from typing import Optional
+from typing import Any, Dict, Optional
 
 from django.core.mail import send_mail
 from django.http import HttpRequest
@@ -21,23 +21,25 @@ logger = get_logger(__name__)
 class HoneyGuardService:
     """Encapsulates core business logic for honeypot event processing."""
 
-    def __init__(self, request: HttpRequest, data: Optional[dict] = None):
-        self.request = request
-        self.data = data
-        self.metadata = get_request_metadata(request)
+    def __init__(
+        self, request: HttpRequest, data: Optional[Dict[str, Any]] = None
+    ) -> None:
+        self.request: HttpRequest = request
+        self.metadata: Dict[str, str] = get_request_metadata(request)
 
-        elapsed_time = 0
+        elapsed_time = 0.0
         timing_issue = TimingIssue.VALID
 
-        if self.data:
-            render_time = self.data.get("render_time")
+        if data:
+            render_time = data.get("render_time")
             if render_time:
                 timing_issue, elapsed_time = check_timing_attack(render_time)
-            honeypot_triggered = bool(self.data.get("hp", "").strip())
+            honeypot_triggered = bool(data.get("hp", "").strip())
 
-            self.data["honeypot_triggered"] = honeypot_triggered
-            self.data["timing_issue"] = timing_issue
-            self.data["elapsed_time"] = elapsed_time
+            data["honeypot_triggered"] = honeypot_triggered
+            data["timing_issue"] = timing_issue
+            data["elapsed_time"] = elapsed_time
+            self.data: Dict[str, Any] = data
         else:
             self.data = {
                 "timing_issue": timing_issue,
@@ -45,7 +47,7 @@ class HoneyGuardService:
                 "honeypot_triggered": False,
             }
 
-    def _format_log_data(self) -> dict:
+    def _format_log_data(self) -> Dict[str, Any]:
         """Format data for logging/email alerts."""
         password_sanitized = sanitize_password(self.data.get("password", ""))
         return {
@@ -87,11 +89,17 @@ class HoneyGuardService:
         logger.warning(log_text)
 
     def send_email_alert(self) -> None:
-        """Send email alert to configured recipients."""
+        """
+        Send email alert to configured recipients.
+
+        This method handles email sending with proper error handling.
+        Email failures will not raise exceptions by default to prevent
+        disrupting the honeypot detection flow.
+        """
         recipients = honeyguard_settings.EMAIL_RECIPIENTS or []
 
         if not recipients:
-            logger.warning(
+            logger.debug(
                 "No email recipients configured; skipping email alert."
             )
             return
@@ -99,19 +107,39 @@ class HoneyGuardService:
         subject_prefix = honeyguard_settings.EMAIL_SUBJECT_PREFIX
         subject = f"{subject_prefix} - {self.metadata['path']}"
 
-        message = EMAIL_ALERT_BODY.format(
-            **self._format_log_data(),
-        )
+        try:
+            message = EMAIL_ALERT_BODY.format(**self._format_log_data())
+        except KeyError as e:
+            logger.error(
+                f"Error formatting email message: missing key {e}",
+                exc_info=True,
+            )
+            return
+
+        # Get fail_silently setting (defaults to True for resilience)
+        fail_silently = honeyguard_settings.EMAIL_FAIL_SILENTLY or True
 
         try:
+            from_email = honeyguard_settings.EMAIL_FROM
+            if not from_email:
+                from_email = None  # Let Django use DEFAULT_FROM_EMAIL
+
             send_mail(
                 subject=subject,
                 message=message,
-                from_email=honeyguard_settings.EMAIL_FROM
-                or "noreply@example.com",
+                from_email=from_email,
                 recipient_list=recipients,
-                fail_silently=False,
+                fail_silently=fail_silently,
             )
             logger.info(f"Sent email alert to {len(recipients)} recipient(s)")
         except Exception as e:
-            logger.error(f"Error sending email alert: {e}", exc_info=True)
+            logger.error(
+                f"Error sending email alert to {len(recipients)} recipient(s): {e}",
+                exc_info=True,
+            )
+            # If fail_silently is False and we still got an exception, log critical
+            if not fail_silently:
+                logger.critical(
+                    "Email sending failed with fail_silently=False. "
+                    "Check email configuration immediately."
+                )

@@ -2,7 +2,7 @@
 
 import ipaddress
 from datetime import datetime
-from typing import Optional, Tuple
+from typing import Dict, Optional, Tuple
 
 from django.http import HttpRequest
 from django.utils import timezone
@@ -49,7 +49,7 @@ def sanitize_password(password: str) -> str:
     return f"***{len(password)} chars***"
 
 
-def get_request_metadata(request: HttpRequest) -> dict:
+def get_request_metadata(request: HttpRequest) -> Dict[str, str]:
     """
     Collect request metadata for logging and alerting.
 

@@ -1,3 +1,5 @@
+from typing import Any
+
 from django import forms
 
 from .conf import settings as honeyguard_settings
@@ -24,17 +26,15 @@ class BaseFakeLoginForm(forms.Form):
         widget=forms.HiddenInput(),
     )
 
-    def is_honeypot_triggered(self):
-        """Check if the honeypot field was filled (indicating bot activity)."""
-        return bool(self.data.get("hp", "").strip())
-
-    def clean_username(self):
+    def clean_username(self) -> str:
+        """Clean and validate username field."""
         username = self.cleaned_data.get("username", "").strip()
         if not username:
             raise forms.ValidationError(self.username_required_message)
         return username
 
-    def clean_password(self):
+    def clean_password(self) -> str:
+        """Clean and validate password field."""
         password = self.cleaned_data.get("password", "")
         if not password:
             raise forms.ValidationError(self.password_required_message)

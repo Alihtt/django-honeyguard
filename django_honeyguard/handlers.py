@@ -1,6 +1,9 @@
 """Signal handlers for honeypot events."""
 
+from typing import Any, Dict
+
 from django.dispatch import receiver
+from django.http import HttpRequest
 
 from .loggers import get_logger
 from .services import HoneyGuardService
@@ -10,7 +13,12 @@ logger = get_logger(__name__)
 
 
 @receiver(honeypot_triggered)
-def handle_honeypot_trigger(sender, request, data, **_kwargs):
+def handle_honeypot_trigger(
+    sender: Any,
+    request: HttpRequest,
+    data: Dict[str, Any],
+    **_kwargs: Any,
+) -> None:
     """
     Handle honeypot triggers by delegating to HoneyGuardService.
 

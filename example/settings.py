@@ -125,8 +125,6 @@ HONEYGUARD = {
 # HONEYGUARD_ENABLE_GET_METHOD_DETECTION = True  # Enable GET request detection
 # ... etc
 
-# Backward compatibility (deprecated)
-DJANGO_HONEYGUARD_EMAIL_RECIPIENTS = HONEYGUARD["EMAIL_RECIPIENTS"]
 
 # Email settings (configure for production)
 EMAIL_BACKEND = (
