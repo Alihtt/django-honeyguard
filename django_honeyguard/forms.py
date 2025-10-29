@@ -1,15 +1,51 @@
 from django import forms
 
 from .conf import settings as honeyguard_settings
-from .mixins import LoginFormMixin
 
 
-class FakeDjangoLoginForm(forms.Form, LoginFormMixin):
+class BaseFakeLoginForm(forms.Form):
+    username_required_message = "This field is required."
+    password_required_message = "This field is required."
+
+    hp = forms.CharField(
+        required=False,
+        label="",
+        widget=forms.TextInput(
+            attrs={
+                "style": "display:none !important; position: absolute; left: -9999px;",
+                "tabindex": "-1",
+                "autocomplete": "off",
+                "aria-hidden": "true",
+            }
+        ),
+    )
+    render_time = forms.CharField(
+        required=False,
+        widget=forms.HiddenInput(),
+    )
+
+    def is_honeypot_triggered(self):
+        """Check if the honeypot field was filled (indicating bot activity)."""
+        return bool(self.data.get("hp", "").strip())
+
+    def clean_username(self):
+        username = self.cleaned_data.get("username", "").strip()
+        if not username:
+            raise forms.ValidationError(self.username_required_message)
+        return username
+
+    def clean_password(self):
+        password = self.cleaned_data.get("password", "")
+        if not password:
+            raise forms.ValidationError(self.password_required_message)
+        return password
+
+
+class FakeDjangoLoginForm(BaseFakeLoginForm):
     """Fake login form with hidden honeypot field to detect bots."""
 
     username = forms.CharField(
         max_length=honeyguard_settings.MAX_USERNAME_LENGTH,
-        required=True,
         label="Username:",
         widget=forms.TextInput(
             attrs={
@@ -17,51 +53,30 @@ class FakeDjangoLoginForm(forms.Form, LoginFormMixin):
                 "autocapitalize": "none",
                 "autocomplete": "username",
                 "maxlength": str(honeyguard_settings.MAX_USERNAME_LENGTH),
-                "required": True,
             }
         ),
     )
 
     password = forms.CharField(
         max_length=honeyguard_settings.MAX_PASSWORD_LENGTH,
-        required=True,
         label="Password:",
         widget=forms.PasswordInput(
             attrs={
                 "autocomplete": "current-password",
                 "maxlength": str(honeyguard_settings.MAX_PASSWORD_LENGTH),
-                "required": True,
             }
         ),
     )
 
-    # Hidden timing field to detect too-fast submissions
-    form_render_time = forms.CharField(
-        required=False,
-        widget=forms.HiddenInput(),
-    )
 
-    def clean_username(self):
-        """Validate username field."""
-        username = self.cleaned_data.get("username", "").strip()
-        if not username:
-            raise forms.ValidationError("This field is required.")
-        return username
-
-    def clean_password(self):
-        """Validate password field."""
-        password = self.cleaned_data.get("password", "")
-        if not password:
-            raise forms.ValidationError("This field is required.")
-        return password
-
-
-class FakeWordPressLoginForm(LoginFormMixin, forms.Form):
+class FakeWordPressLoginForm(BaseFakeLoginForm):
     """Fake WordPress login form with WordPress-specific attributes."""
+
+    username_required_message = "The username field is empty."
+    password_required_message = "The password field is empty."
 
     username = forms.CharField(
         max_length=honeyguard_settings.WORDPRESS_USERNAME_MAX_LENGTH,
-        required=True,
         label="Username or Email Address",
         widget=forms.TextInput(
             attrs={
@@ -78,7 +93,6 @@ class FakeWordPressLoginForm(LoginFormMixin, forms.Form):
     )
     password = forms.CharField(
         max_length=honeyguard_settings.WORDPRESS_PASSWORD_MAX_LENGTH,
-        required=True,
         label="Password",
         widget=forms.PasswordInput(
             attrs={
@@ -92,23 +106,3 @@ class FakeWordPressLoginForm(LoginFormMixin, forms.Form):
             }
         ),
     )
-
-    # Hidden timing field to detect too-fast submissions
-    form_render_time = forms.CharField(
-        required=False,
-        widget=forms.HiddenInput(),
-    )
-
-    def clean_username(self):
-        """Validate username field."""
-        username = self.cleaned_data.get("username", "").strip()
-        if not username:
-            raise forms.ValidationError("The username field is empty.")
-        return username
-
-    def clean_password(self):
-        """Validate password field."""
-        password = self.cleaned_data.get("password", "")
-        if not password:
-            raise forms.ValidationError("The password field is empty.")
-        return password

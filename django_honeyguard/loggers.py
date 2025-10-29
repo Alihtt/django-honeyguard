@@ -1,3 +1,5 @@
+"""Logging utilities for django-honeyguard."""
+
 import logging
 
 from .conf import settings as honeyguard_settings

@@ -1,8 +1,7 @@
-import warnings
+"""Configuration management for django-honeyguard."""
 
 from django.conf import settings as dj_settings
 from django.core.signals import setting_changed
-from django.utils.translation import gettext_lazy as _
 
 DEFAULTS = {
     # Email alerts configuration
@@ -109,30 +108,7 @@ class Settings:
         # Check for individual HONEYGUARD_* settings
         django_setting = f"HONEYGUARD_{setting}"
 
-        # Handle deprecated settings
-        if self._is_deprecated(django_setting):
-            warnings.warn(
-                f"The '{django_setting}' setting has been deprecated.",
-                DeprecationWarning,
-                stacklevel=3,
-            )
-
         return getattr(dj_settings, django_setting, DEFAULTS[setting])
-
-    def _is_deprecated(self, django_setting):
-        """
-        Check if a Django setting is deprecated.
-
-        Args:
-            django_setting: Full Django setting name (e.g., 'HONEYGUARD_SOME_SETTING')
-
-        Returns:
-            bool: True if deprecated and exists in Django settings
-        """
-        deprecated_settings = getattr(self, "_deprecated_settings", set())
-        return django_setting in deprecated_settings and hasattr(
-            dj_settings, django_setting
-        )
 
     def change_setting(self, setting, value, enter, **kwargs):
         """

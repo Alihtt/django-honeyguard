@@ -4,8 +4,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>WordPress › Log In</title>
-        <meta name="robots" content="noindex,noarchive" />
-        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <meta name='robots' content='noindex,noarchive' />
+        <meta name='referrer' content='strict-origin-when-cross-origin' />
         <meta name="viewport" content="width=device-width" />
         <link rel="stylesheet"
               href="{% static 'django_honeyguard/css/wp-login.css' %}"
@@ -22,12 +22,10 @@
                     <strong>Error:</strong>
                     {% if form.username.errors %}
                         The username field is empty.
-                    {% elif
-                        form.password.errors %}
+                    {% elif form.password.errors %}
                         The password field is empty.
                     {% else %}
-                        Please
-                        fill in all required fields.
+                        Please fill in all required fields.
                     {% endif %}
                 </div>
             {% endif %}
@@ -62,8 +60,9 @@
                            id="wp-submit"
                            class="button button-primary button-large"
                            value="Log In" />
-                    <input type="hidden" name="redirect_to" value="{{ next }}" />
-                    <input type="hidden" name="form_render_time" value="{{ form_render_time }}" />
+                    <input type="hidden"
+                           name="render_time"
+                           value="{{ form.render_time.value|default:form.render_time.initial }}">
                 </p>
             </form>
             <p id="nav">

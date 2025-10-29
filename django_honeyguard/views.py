@@ -1,11 +1,20 @@
+"""Views for fake admin pages (honeypots)."""
+
+from datetime import datetime
+from typing import Optional
+
 from django.contrib import messages
+from django.core.signing import BadSignature, SignatureExpired, TimestampSigner
+from django.http import HttpRequest
 from django.utils import timezone
 from django.views.generic.edit import FormView
 
 from .conf import settings
 from .forms import FakeDjangoLoginForm, FakeWordPressLoginForm
+from .loggers import get_logger
 from .signals import honeypot_triggered
-from .utils import check_timing_attack, get_request_metadata
+
+logger = get_logger(__name__)
 
 
 class FakeAdminView(FormView):
@@ -25,127 +34,72 @@ class FakeAdminView(FormView):
         """
         return self.error_message
 
+    def __init__(self, *args, **kwargs):
+        """Initialize the view with a TimestampSigner."""
+        super().__init__(*args, **kwargs)
+        self.signer = TimestampSigner()
+
     def dispatch(self, request, *args, **kwargs):
-        """
-        Store form render time in session for timing attack detection.
+        """Store signed render time for timing detection."""
+        render_time = timezone.now()
+        # Sign the ISO string representation of the datetime
+        self.signed_time = self.signer.sign(render_time.isoformat())
+        return super().dispatch(request, *args, **kwargs)
 
-        Args:
-            request: Django HttpRequest object
-            *args: Additional positional arguments
-            **kwargs: Additional keyword arguments
-
-        Returns:
-            HttpResponse: Response from parent dispatch
-        """
-        response = super().dispatch(request, *args, **kwargs)
-        request.session["form_render_time"] = timezone.now().isoformat()
-        return response
+    def get_initial(self):
+        initial = super().get_initial()
+        initial["render_time"] = self.signed_time
+        return initial
 
     def get(self, request, *args, **kwargs):
-        """
-        Handle GET requests with optional honeypot detection.
-
-        Args:
-            request: Django HttpRequest object
-            *args: Additional positional arguments
-            **kwargs: Additional keyword arguments
-
-        Returns:
-            HttpResponse: Rendered template response
-        """
         if settings.ENABLE_GET_METHOD_DETECTION:
-            self._trigger_honeypot_signal(request)
+            self.process_honeypot_trigger(request)
 
         return super().get(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
-        """
-        Handle POST requests and display error message.
-
-        Args:
-            request: Django HttpRequest object
-            *args: Additional positional arguments
-            **kwargs: Additional keyword arguments
-
-        Returns:
-            HttpResponse: Response from parent post
-        """
         response = super().post(request, *args, **kwargs)
-        request.session.pop("form_render_time", None)
         messages.error(request, self.get_error_message())
         return response
 
-    def _trigger_honeypot_signal(self, request, form_data=None):
-        """
-        Send honeypot triggered signal with collected metadata.
-
-        Args:
-            request: Django HttpRequest object
-            form_data: Dictionary of form data (optional)
-        """
-        metadata = get_request_metadata(request)
-
-        if form_data:
-            timing_issue, elapsed_time = self._check_timing(request)
-            metadata.update(
-                {
-                    "username_attempted": form_data.get("username", ""),
-                    "password_attempted": form_data.get("password", ""),
-                    "honeypot_triggered": bool(form_data.get("hp", "")),
-                    "timing_issue": timing_issue,
-                    "elapsed_time": elapsed_time,
-                }
-            )
-        else:
-            metadata["honeypot_triggered"] = False
-
-        honeypot_triggered.send(
-            sender=self.__class__, request=request, data=metadata
-        )
-
-    def _check_timing(self, request):
-        """
-        Check for timing attacks based on form render time.
-
-        Args:
-            request: Django HttpRequest object
-
-        Returns:
-            tuple: (timing_issue, elapsed_time) or (None, None) if no render time
-        """
-        render_time = request.session.get("form_render_time")
-        if render_time:
-            return check_timing_attack(render_time)
-        return None, None
-
     def form_valid(self, form):
-        """
-        Handle valid form submission (trigger honeypot).
-
-        Args:
-            form: Valid form instance
-
-        Returns:
-            HttpResponse: Re-rendered form with context
-        """
-        self._trigger_honeypot_signal(
+        self.process_honeypot_trigger(
             self.request,
             form_data=form.cleaned_data,
         )
         return self.render_to_response(self.get_context_data(form=form))
 
     def form_invalid(self, form):
-        """
-        Handle invalid form submission (trigger honeypot).
-
-        Args:
-            form: Invalid form instance
-
-        Returns:
-            HttpResponse: Re-rendered form with context
-        """
-        self._trigger_honeypot_signal(self.request, form_data=form.data)
+        self.process_honeypot_trigger(self.request, form_data=form.data)
         return self.render_to_response(self.get_context_data(form=form))
+
+    def process_honeypot_trigger(
+        self, request: HttpRequest, form_data: Optional[dict] = None
+    ) -> None:
+        """Process honeypot trigger and send signal."""
+        if not form_data:
+            form_data = {}
+
+        render_time = form_data.get("render_time")
+        if render_time:
+            try:
+                # Unsign the ISO string and convert back to datetime then to ISO for consistency
+                unsigned_str = self.signer.unsign(render_time, max_age=600)
+
+                unsigned_dt = datetime.fromisoformat(unsigned_str)
+                if timezone.is_naive(unsigned_dt):
+                    unsigned_dt = timezone.make_aware(unsigned_dt)
+                form_data["render_time"] = unsigned_dt.isoformat()
+            except (SignatureExpired, BadSignature) as e:
+                logger.warning(f"Invalid render_time signature: {e}")
+                form_data["render_time"] = None
+            except (ValueError, TypeError) as e:
+                logger.warning(f"Error parsing render_time: {e}")
+                form_data["render_time"] = None
+
+        honeypot_triggered.send(
+            sender=self.__class__, request=request, data=form_data
+        )
 
 
 class FakeDjangoAdminView(FakeAdminView):
@@ -155,7 +109,6 @@ class FakeDjangoAdminView(FakeAdminView):
     template_name = "django_honeyguard/django_admin_login.html"
 
     def get_error_message(self):
-        """Get Django-specific error message from settings."""
         return settings.DJANGO_ERROR_MESSAGE
 
 
@@ -166,5 +119,4 @@ class FakeWPAdminView(FakeAdminView):
     template_name = "django_honeyguard/wp_admin_login.html"
 
     def get_error_message(self):
-        """Get WordPress-specific error message from settings."""
         return settings.WORDPRESS_ERROR_MESSAGE

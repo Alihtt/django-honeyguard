@@ -11,15 +11,22 @@
               method="post"
               id="login-form">
             {% csrf_token %}
-            <div class="form-row">{{ form.username.errors }} {{ form.username.label_tag }} {{ form.username }}</div>
             <div class="form-row">
-                {{ form.password.errors }} {{ form.password.label_tag }} {{ form.password }}
-                <input type="hidden" name="next" value="{{ next }}" />
-                <input type="hidden" name="form_render_time" value="{{ form_render_time }}" />
+                {{ form.username.errors }}
+                {{ form.username.label_tag }}
+                {{ form.username }}
             </div>
-            <div style="display: none">{{ form.hp.as_widget }}</div>
+            <div class="form-row">
+                {{ form.password.errors }}
+                {{ form.password.label_tag }}
+                {{ form.password }}
+                <input type="hidden"
+                       name="render_time"
+                       value="{{ form.render_time.value|default:form.render_time.initial }}">
+            </div>
+            <div style="display:none;">{{ form.hp.as_widget }}</div>
             <div class="submit-row">
-                <input type="submit" value="Log in" />
+                <input type="submit" value="Log in">
             </div>
         </form>
     </div>

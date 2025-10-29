@@ -1,27 +1,24 @@
+"""HoneyGuard models for logging honeypot detections."""
+
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 
 class TimingIssue(models.TextChoices):
-    TOO_FAST = "too_fast", _("Too Fast (<2s)")
-    TOO_SLOW = "too_slow", _("Too Slow (>10min)")
+    TOO_FAST = "too_fast", _("Too Fast")
+    TOO_SLOW = "too_slow", _("Too Slow")
     VALID = "valid", _("Valid Timing")
 
 
 class RequestMethod(models.TextChoices):
-    GET = "GET", _("GET Request")
-    POST = "POST", _("POST Request")
+    GET = "GET", _("GET")
+    POST = "POST", _("POST")
 
 
 class HoneyGuardLog(models.Model):
     """Log entry for honeypot detection events."""
 
     # Basic Information
-    timestamp = models.DateTimeField(
-        auto_now_add=True,
-        db_index=True,
-        help_text=_("Timestamp of the honeypot trigger"),
-    )
     ip_address = models.GenericIPAddressField(
         db_index=True, help_text=_("IP address of the requester")
     )
@@ -30,13 +27,13 @@ class HoneyGuardLog(models.Model):
     )
 
     # Authentication Attempt
-    username_attempted = models.CharField(
+    username = models.CharField(
         max_length=255,
         blank=True,
         default="",
         help_text=_("Username submitted in login attempt"),
     )
-    password_attempted = models.CharField(
+    password = models.CharField(
         max_length=255,
         blank=True,
         default="",
@@ -55,7 +52,7 @@ class HoneyGuardLog(models.Model):
     )
     accept_language = models.CharField(max_length=255, blank=True, default="")
     accept_encoding = models.CharField(max_length=255, blank=True, default="")
-    request_method = models.CharField(
+    method = models.CharField(
         max_length=10, default=RequestMethod.POST, choices=RequestMethod.choices
     )
 
@@ -89,22 +86,22 @@ class HoneyGuardLog(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        ordering = ["-timestamp"]
+        ordering = ["-created_at"]
         indexes = [
-            models.Index(fields=["-timestamp", "ip_address"]),
-            models.Index(fields=["honeypot_triggered", "-timestamp"]),
-            models.Index(fields=["path", "-timestamp"]),
+            models.Index(fields=["-created_at", "ip_address"]),
+            models.Index(fields=["honeypot_triggered", "-created_at"]),
+            models.Index(fields=["path", "-created_at"]),
         ]
         verbose_name = _("HoneyGuard Log")
         verbose_name_plural = _("HoneyGuard Logs")
 
     def __str__(self):
-        return f"HoneyGuard trigger from {self.ip_address} at {self.timestamp}"
+        return f"HoneyGuard trigger from {self.ip_address} at {self.created_at}"
 
     def __repr__(self):
         return (
             f"<HoneyGuardLog(ip={self.ip_address}, "
-            f"path={self.path}, timestamp={self.timestamp})>"
+            f"path={self.path}, created_at={self.created_at})>"
         )
 
     @property
