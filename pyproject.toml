@@ -32,6 +32,9 @@ classifiers = [
 ]
 dependencies = [
   "django>=4.0,<6",
+  "sphinx>=8.2.3",
+  "sphinx-autobuild>=2025.8.25",
+  "sphinx-rtd-theme>=3.0.2",
 ]
 
 [project.urls]
@@ -65,9 +68,9 @@ extend-ignore = ["E203", "W503"]
 
 [tool.uv]
 dev-dependencies = [
-  "pytest>=7",
-  "pytest-django>=4.5",
-  "pytest-cov>=4",
-  "flake8>=6",
-  "factory-boy>=3.2",
+    "pytest>=7",
+    "pytest-django>=4.5",
+    "pytest-cov>=4",
+    "flake8>=6",
+    "factory-boy>=3.2",
 ]
