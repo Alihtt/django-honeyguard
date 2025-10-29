@@ -41,9 +41,7 @@ class FakeAdminView(FormView):
         self.signer: TimestampSigner = TimestampSigner()
         self.signed_time: str = ""
 
-    def dispatch(
-        self, request: HttpRequest, *args: Any, **kwargs: Any
-    ) -> HttpResponse:
+    def dispatch(self, request: HttpRequest, *args: Any, **kwargs: Any) -> HttpResponse:
         """Store signed render time for timing detection."""
         render_time = timezone.now()
         # Sign the ISO string representation of the datetime
@@ -56,18 +54,14 @@ class FakeAdminView(FormView):
         initial["render_time"] = self.signed_time
         return initial
 
-    def get(
-        self, request: HttpRequest, *args: Any, **kwargs: Any
-    ) -> HttpResponse:
+    def get(self, request: HttpRequest, *args: Any, **kwargs: Any) -> HttpResponse:
         """Handle GET requests - optionally trigger honeypot detection."""
         if honeyguard_settings.ENABLE_GET_METHOD_DETECTION:
             self.process_honeypot_trigger(request)
 
         return super().get(request, *args, **kwargs)
 
-    def post(
-        self, request: HttpRequest, *args: Any, **kwargs: Any
-    ) -> HttpResponse:
+    def post(self, request: HttpRequest, *args: Any, **kwargs: Any) -> HttpResponse:
         """Handle POST requests - always show error message."""
         response = super().post(request, *args, **kwargs)
         messages.error(request, self.get_error_message())
@@ -110,9 +104,7 @@ class FakeAdminView(FormView):
                 logger.warning(f"Error parsing render_time: {e}")
                 form_data["render_time"] = None
 
-        honeypot_triggered.send(
-            sender=self.__class__, request=request, data=form_data
-        )
+        honeypot_triggered.send(sender=self.__class__, request=request, data=form_data)
 
 
 class FakeDjangoAdminView(FakeAdminView):

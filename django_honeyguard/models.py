@@ -107,9 +107,7 @@ class HoneyGuardLog(models.Model):
     @property
     def is_bot(self):
         """Check if this appears to be bot activity."""
-        return (
-            self.honeypot_triggered or self.timing_issue == TimingIssue.TOO_FAST
-        )
+        return self.honeypot_triggered or self.timing_issue == TimingIssue.TOO_FAST
 
     @property
     def risk_score(self):

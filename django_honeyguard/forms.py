@@ -26,6 +26,10 @@ class BaseFakeLoginForm(forms.Form):
         widget=forms.HiddenInput(),
     )
 
+    def is_honeypot_triggered(self) -> bool:
+        """Check if the honeypot field was filled (indicating bot activity)."""
+        return bool(self.data.get("hp", "").strip())
+
     def clean_username(self) -> str:
         """Clean and validate username field."""
         username = self.cleaned_data.get("username", "").strip()
@@ -85,9 +89,7 @@ class FakeWordPressLoginForm(BaseFakeLoginForm):
                 "size": "20",
                 "autocapitalize": "off",
                 "autocomplete": "username",
-                "maxlength": str(
-                    honeyguard_settings.WORDPRESS_USERNAME_MAX_LENGTH
-                ),
+                "maxlength": str(honeyguard_settings.WORDPRESS_USERNAME_MAX_LENGTH),
             }
         ),
     )
@@ -100,9 +102,7 @@ class FakeWordPressLoginForm(BaseFakeLoginForm):
                 "id": "user_pass",
                 "size": "20",
                 "autocomplete": "current-password",
-                "maxlength": str(
-                    honeyguard_settings.WORDPRESS_PASSWORD_MAX_LENGTH
-                ),
+                "maxlength": str(honeyguard_settings.WORDPRESS_PASSWORD_MAX_LENGTH),
             }
         ),
     )

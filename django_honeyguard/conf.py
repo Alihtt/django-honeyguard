@@ -4,8 +4,8 @@ import logging
 from typing import Any, Callable, Dict, List, Tuple, Type, Union
 
 from django.conf import settings as dj_settings
-from django.core.signals import setting_changed
 from django.core.exceptions import ImproperlyConfigured
+from django.core.signals import setting_changed
 
 logger = logging.getLogger(__name__)
 

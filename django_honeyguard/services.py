@@ -9,11 +9,7 @@ from .conf import settings as honeyguard_settings
 from .constants import CONSOLE_LOG_FORMAT, EMAIL_ALERT_BODY
 from .loggers import get_logger
 from .models import HoneyGuardLog, TimingIssue
-from .utils import (
-    check_timing_attack,
-    get_request_metadata,
-    sanitize_password,
-)
+from .utils import check_timing_attack, get_request_metadata, sanitize_password
 
 logger = get_logger(__name__)
 
@@ -99,9 +95,7 @@ class HoneyGuardService:
         recipients = honeyguard_settings.EMAIL_RECIPIENTS or []
 
         if not recipients:
-            logger.debug(
-                "No email recipients configured; skipping email alert."
-            )
+            logger.debug("No email recipients configured; skipping email alert.")
             return
 
         subject_prefix = honeyguard_settings.EMAIL_SUBJECT_PREFIX

@@ -5,13 +5,12 @@ from datetime import timedelta
 from typing import Any
 
 from django.contrib import admin
-from django.contrib.admin import SimpleListFilter
 from django.db.models import QuerySet
 from django.http import HttpResponse
 from django.utils import timezone
 from django.utils.html import format_html
 
-from .models import HoneyGuardLog, TimingIssue
+from .models import HoneyGuardLog
 
 
 @admin.register(HoneyGuardLog)
@@ -109,7 +108,7 @@ class HoneyGuardLogAdmin(admin.ModelAdmin):
     def username_display(self, obj: HoneyGuardLog) -> str:
         """Display username with truncation."""
         if not obj.username:
-            return format_html('<span style="color: #999;">—</span>')
+            return format_html('<span style="color: #999;">{}</span>', "—")
         return obj.username[:30] + ("..." if len(obj.username) > 30 else "")
 
     @admin.display(description="Risk Score", ordering="-honeypot_triggered")
@@ -151,7 +150,7 @@ class HoneyGuardLogAdmin(admin.ModelAdmin):
                 else obj.user_agent
             )
             summary_parts.append(f"<strong>User-Agent:</strong> {ua_short}")
-        return format_html("<br>".join(summary_parts))
+        return format_html("{}", "<br>".join(summary_parts))
 
     @admin.action(description="Export selected logs to CSV")
     def export_to_csv(
@@ -159,9 +158,7 @@ class HoneyGuardLogAdmin(admin.ModelAdmin):
     ) -> HttpResponse:
         """Export selected logs to CSV format."""
         response = HttpResponse(content_type="text/csv")
-        response["Content-Disposition"] = (
-            'attachment; filename="honeyguard_logs.csv"'
-        )
+        response["Content-Disposition"] = 'attachment; filename="honeyguard_logs.csv"'
 
         writer = csv.writer(response)
         writer.writerow(
@@ -202,9 +199,7 @@ class HoneyGuardLogAdmin(admin.ModelAdmin):
         return response
 
     @admin.action(description="Archive logs older than 90 days")
-    def archive_old_logs(
-        self, request: Any, queryset: QuerySet[HoneyGuardLog]
-    ) -> None:
+    def archive_old_logs(self, request: Any, queryset: QuerySet[HoneyGuardLog]) -> None:
         """Archive logs older than 90 days."""
         cutoff_date = timezone.now() - timedelta(days=90)
         old_logs = queryset.filter(created_at__lt=cutoff_date)
