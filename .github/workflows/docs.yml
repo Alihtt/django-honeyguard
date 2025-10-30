@@ -36,7 +36,7 @@ jobs:
           make html
 
       - name: Upload built docs
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: docs-html
           path: docs/_build/html
