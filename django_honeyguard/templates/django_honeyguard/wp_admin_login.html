@@ -38,7 +38,7 @@
             {% endif %}
             <form name="loginform"
                   id="loginform"
-                  action="{% url 'django_honeyguard:fake_wp_admin' %}"
+                  action=""
                   method="post">
                 {% csrf_token %}
                 <p>
@@ -66,7 +66,7 @@
                 </p>
             </form>
             <p id="nav">
-                <a href="{% url 'django_honeyguard:fake_wp_admin' %}">Lost your password?</a>
+                <a href="#">Lost your password?</a>
             </p>
             <p id="backtoblog">
                 <a href="/">&larr; Go to Site</a>

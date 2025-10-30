@@ -1,6 +1,6 @@
 """django-honeyguard package metadata and default app config."""
 
-__version__ = "0.1.2"
+__version__ = "0.1.3"
 
 default_app_config = "django_honeyguard.apps.HoneyGuardConfig"
 

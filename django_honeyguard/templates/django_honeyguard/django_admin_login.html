@@ -2,14 +2,12 @@
 {% load i18n %}
 {% block branding %}
     <h1 id="site-name">
-        <a href="{% url 'django_honeyguard:fake_django_admin' %}">Django administration</a>
+        <a href="#">Django administration</a>
     </h1>
 {% endblock %}
 {% block content %}
     <div id="content-main">
-        <form action="{% url 'django_honeyguard:fake_django_admin' %}"
-              method="post"
-              id="login-form">
+        <form action="" method="post" id="login-form">
             {% csrf_token %}
             <div class="form-row">
                 {{ form.username.errors }}

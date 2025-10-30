@@ -10,6 +10,15 @@ and this project adheres to `Semantic Versioning <https://semver.org/spec/v2.0.0
 
    For detailed version history, see the GitHub releases page.
 
+[0.1.3] - 2025-10-30
+------------
+
+Fixed
+~~~~~~~
+
+* fake Django admin login page URL
+* fake WordPress admin login page URL
+
 [0.1.2] - 2025-10-30
 ------------
 
