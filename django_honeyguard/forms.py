@@ -1,5 +1,3 @@
-from typing import Any
-
 from django import forms
 
 from .conf import settings as honeyguard_settings
@@ -89,7 +87,9 @@ class FakeWordPressLoginForm(BaseFakeLoginForm):
                 "size": "20",
                 "autocapitalize": "off",
                 "autocomplete": "username",
-                "maxlength": str(honeyguard_settings.WORDPRESS_USERNAME_MAX_LENGTH),
+                "maxlength": str(
+                    honeyguard_settings.WORDPRESS_USERNAME_MAX_LENGTH
+                ),
             }
         ),
     )
@@ -102,7 +102,9 @@ class FakeWordPressLoginForm(BaseFakeLoginForm):
                 "id": "user_pass",
                 "size": "20",
                 "autocomplete": "current-password",
-                "maxlength": str(honeyguard_settings.WORDPRESS_PASSWORD_MAX_LENGTH),
+                "maxlength": str(
+                    honeyguard_settings.WORDPRESS_PASSWORD_MAX_LENGTH
+                ),
             }
         ),
     )

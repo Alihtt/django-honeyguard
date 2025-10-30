@@ -1,7 +1,7 @@
 """Configuration management for django-honeyguard."""
 
 import logging
-from typing import Any, Callable, Dict, List, Tuple, Type, Union
+from typing import Any, Callable, Dict, List, Tuple
 
 from django.conf import settings as dj_settings
 from django.core.exceptions import ImproperlyConfigured
@@ -46,7 +46,9 @@ DEFAULTS: Dict[str, Any] = {
 }
 
 
-def validate_email_recipients(value: Any, setting_name: str) -> Tuple[List[str], str]:
+def validate_email_recipients(
+    value: Any, setting_name: str
+) -> Tuple[List[str], str]:
     """
     Validate EMAIL_RECIPIENTS setting.
 
@@ -376,7 +378,9 @@ class Settings:
         # Validate the value if validator exists
         if validate and setting in VALIDATORS:
             validator = VALIDATORS[setting]
-            setting_full_name = f"HONEYGUARD['{setting}'] or HONEYGUARD_{setting}"
+            setting_full_name = (
+                f"HONEYGUARD['{setting}'] or HONEYGUARD_{setting}"
+            )
             try:
                 validated_value, _ = validator(value, setting_full_name)
                 return validated_value
