@@ -10,7 +10,7 @@ and this project adheres to `Semantic Versioning <https://semver.org/spec/v2.0.0
 
    For detailed version history, see the GitHub releases page.
 
-[Unreleased]
+[0.1.1] - 2025-10-30
 ------------
 
 Added
@@ -28,7 +28,7 @@ Changed
 * Improved error handling for email sending
 * Better configuration management with lazy loading
 
-[0.1.0] - YYYY-MM-DD
+[0.1.0] - 2025-10-29
 --------------------
 
 Added
