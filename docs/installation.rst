@@ -16,7 +16,7 @@ Or to install from the latest source:
 
 .. code-block:: bash
 
-   pip install git+https://github.com/yourusername/django-honeyguard.git
+   pip install git+https://github.com/alihtt/django-honeyguard.git
 
 For development, install with extra dependencies:
 
@@ -29,9 +29,8 @@ Dependencies
 
 django-honeyguard requires:
 
-* **Python**: 3.8 or higher
-* **Django**: 3.2 or higher
-* **django-extensions**: Optional, for management commands
+* **Python**: 3.10 or higher
+* **Django**: 5.2.7 or higher
 
 All other dependencies are listed in ``pyproject.toml``.
 

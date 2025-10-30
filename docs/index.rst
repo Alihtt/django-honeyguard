@@ -78,6 +78,20 @@ Contents
    contributing
    changelog
 
+Running Documentation Locally
+=============================
+
+1. Create a virtual environment and install requirements::
+
+   python -m venv .venv && source .venv/bin/activate
+   pip install -r docs/requirements.txt
+
+2. Build HTML docs::
+
+   cd docs && make html
+
+3. Open ``docs/_build/html/index.html`` in your browser.
+
 Indices and tables
 ==================
 

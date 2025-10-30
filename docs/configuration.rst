@@ -106,7 +106,7 @@ Logging Configuration
 .. py:data:: LOG_LEVEL
 
    **Type**: ``str``
-   **Default**: ``"INFO"``
+   **Default**: ``"WARNING"``
    **Valid Values**: ``"DEBUG"``, ``"INFO"``, ``"WARNING"``, ``"ERROR"``
    **Description**: Logging level for console output.
 
@@ -149,7 +149,7 @@ GET Method Detection
 .. py:data:: ENABLE_GET_METHOD_DETECTION
 
    **Type**: ``bool``
-   **Default**: ``True``
+   **Default**: ``False``
    **Description**: If ``True``, GET requests to admin URLs trigger honeypot detection.
 
    .. code-block:: python
@@ -182,7 +182,7 @@ Form Field Configuration
 .. py:data:: WORDPRESS_PASSWORD_MAX_LENGTH
 
    **Type**: ``int``
-   **Default**: ``64``
+   **Default**: ``255``
    **Description**: Maximum length for WordPress password fields.
 
 Error Messages
