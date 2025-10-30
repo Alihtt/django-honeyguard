@@ -162,7 +162,7 @@ cd docs && make html
 [2]: https://pypi.org/project/django-honeyguard/
 [3]: https://readthedocs.org/projects/django-honeyguard/badge/?version=latest
 [4]: https://django-honeyguard.readthedocs.io/en/latest/
-[5]: https://img.shields.io/badge/license-MIT-blue.svg
+[5]: https://img.shields.io/badge/license-BSD--3--Clause-blue
 [6]: https://github.com/alihtt/django-honeyguard/blob/main/LICENSE
 [7]: https://img.shields.io/pypi/pyversions/django-honeyguard.svg
 [8]: https://img.shields.io/badge/Django-%3E%3D%205.2.7-green.svg
