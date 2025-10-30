@@ -30,7 +30,7 @@ Dependencies
 django-honeyguard requires:
 
 * **Python**: 3.10 or higher
-* **Django**: 5.2.7 or higher
+* **Django**: 5.0 or higher
 
 All other dependencies are listed in ``pyproject.toml``.
 

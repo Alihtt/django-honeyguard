@@ -30,7 +30,7 @@ Include the URLs and visit `/admin/` or `/wp-admin.php` to see the honeypots in 
 
 ### Requirements
 
-- Django >= 5.2.7
+- Django >= 5.0.0
 - Python >= 3.10
 
 
@@ -165,7 +165,7 @@ cd docs && make html
 [5]: https://img.shields.io/badge/license-BSD--3--Clause-blue
 [6]: https://github.com/alihtt/django-honeyguard/blob/main/LICENSE
 [7]: https://img.shields.io/pypi/pyversions/django-honeyguard.svg
-[8]: https://img.shields.io/badge/Django-%3E%3D%205.2.7-green.svg
+[8]: https://img.shields.io/badge/Django-%3E%3D%205.0.0-green.svg
 [9]: https://www.djangoproject.com
 [10]: https://img.shields.io/github/actions/workflow/status/alihtt/django-honeyguard/tests.yml?branch=main
 [11]: https://github.com/alihtt/django-honeyguard/actions
