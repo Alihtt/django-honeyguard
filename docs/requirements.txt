@@ -3,4 +3,5 @@ sphinx-rtd-theme>=2.0
 sphinx-autodoc-typehints>=2.0
 sphinx-copybutton>=0.5
 myst-parser>=2.0
+django>=5.0
 
