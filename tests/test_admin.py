@@ -3,9 +3,7 @@
 import pytest
 from django.contrib.admin.sites import site
 from django.contrib.auth.models import User
-from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import Client
-from django.urls import reverse
 
 from django_honeyguard.admin import HoneyGuardLogAdmin
 from django_honeyguard.models import HoneyGuardLog, TimingIssue
@@ -126,7 +124,9 @@ class TestAdminActions:
         client.force_login(admin_user)
         return client
 
-    def test_export_to_csv(self, admin_client, honeyguard_log, honeyguard_log_bot):
+    def test_export_to_csv(
+        self, admin_client, honeyguard_log, honeyguard_log_bot
+    ):
         """Test export_to_csv action."""
         admin = HoneyGuardLogAdmin(HoneyGuardLog, site)
         queryset = HoneyGuardLog.objects.all()
@@ -169,7 +169,9 @@ class TestAdminActions:
         )
         # Update created_at to be recent (within 90 days)
         recent_date = timezone.now() - timedelta(days=10)
-        HoneyGuardLog.objects.filter(id=recent_log.id).update(created_at=recent_date)
+        HoneyGuardLog.objects.filter(id=recent_log.id).update(
+            created_at=recent_date
+        )
         recent_log.refresh_from_db()
 
         from unittest.mock import Mock

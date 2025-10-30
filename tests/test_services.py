@@ -1,6 +1,6 @@
 """Tests for HoneyGuard services."""
 
-from unittest.mock import MagicMock, patch
+from unittest.mock import patch
 
 import pytest
 from django.core import mail
@@ -37,7 +37,11 @@ class TestHoneyGuardService:
 
     def test_service_detects_honeypot_trigger(self, sample_request):
         """Test that service detects honeypot trigger."""
-        data = {"hp": "filled", "username": "user", "password": "pass"}  # Field is "hp"
+        data = {
+            "hp": "filled",
+            "username": "user",
+            "password": "pass",
+        }  # Field is "hp"
         service = HoneyGuardService(sample_request, data)
         # Service processes "hp" field and sets "honeypot_triggered" boolean
         assert service.data["honeypot_triggered"] is True
@@ -187,7 +191,8 @@ class TestSendEmailAlert:
         service = HoneyGuardService(sample_request, {"username": "user"})
         # Should not raise exception even if email fails
         with patch(
-            "django_honeyguard.services.send_mail", side_effect=Exception("Email error")
+            "django_honeyguard.services.send_mail",
+            side_effect=Exception("Email error"),
         ):
             service.send_email_alert()
             # Should complete without raising

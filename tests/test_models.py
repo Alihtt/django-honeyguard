@@ -1,7 +1,6 @@
 """Tests for HoneyGuard models."""
 
 import pytest
-from django.db import IntegrityError
 from django.utils import timezone
 
 from django_honeyguard.models import HoneyGuardLog, RequestMethod, TimingIssue

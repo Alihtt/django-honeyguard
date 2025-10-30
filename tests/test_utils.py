@@ -3,12 +3,15 @@
 import ipaddress
 from datetime import datetime, timedelta
 
-import pytest
 from django.utils import timezone
 
 from django_honeyguard.models import TimingIssue
-from django_honeyguard.utils import (check_timing_attack, get_client_ip,
-                                     get_request_metadata, sanitize_password)
+from django_honeyguard.utils import (
+    check_timing_attack,
+    get_client_ip,
+    get_request_metadata,
+    sanitize_password,
+)
 
 
 class TestGetClientIP:
@@ -31,7 +34,9 @@ class TestGetClientIP:
     def test_get_ip_with_multiple_proxies(self, rf):
         """Test getting IP when multiple proxies are in X-Forwarded-For."""
         request = rf.get("/")
-        request.META["HTTP_X_FORWARDED_FOR"] = "203.0.113.1, 198.51.100.1, 192.168.1.1"
+        request.META["HTTP_X_FORWARDED_FOR"] = (
+            "203.0.113.1, 198.51.100.1, 192.168.1.1"
+        )
         # Should get first IP
         assert get_client_ip(request) == "203.0.113.1"
 

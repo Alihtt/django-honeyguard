@@ -1,13 +1,10 @@
 """Tests for configuration validation and settings management."""
 
-from unittest.mock import patch
-
 import pytest
-from django.conf import settings as dj_settings
 from django.core.exceptions import ImproperlyConfigured
 from django.test import override_settings
 
-from django_honeyguard.conf import Settings, settings
+from django_honeyguard.conf import settings
 
 
 @pytest.mark.django_db
@@ -298,7 +295,9 @@ class TestSettingsChangeSignal:
         # Simulate setting change
         from django.test import override_settings
 
-        with override_settings(HONEYGUARD={"EMAIL_RECIPIENTS": ["new@example.com"]}):
+        with override_settings(
+            HONEYGUARD={"EMAIL_RECIPIENTS": ["new@example.com"]}
+        ):
             # Signal should update cache
             settings.change_setting(
                 "HONEYGUARD", {"EMAIL_RECIPIENTS": ["new@example.com"]}, True

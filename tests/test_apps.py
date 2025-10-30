@@ -3,8 +3,6 @@
 import pytest
 from django.core.exceptions import ImproperlyConfigured
 
-from django_honeyguard.apps import HoneyGuardConfig
-
 
 class TestHoneyGuardConfig:
     """Test HoneyGuardConfig."""

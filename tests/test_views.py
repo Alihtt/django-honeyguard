@@ -10,8 +10,11 @@ from django.utils import timezone
 
 from django_honeyguard.forms import BaseFakeLoginForm
 from django_honeyguard.models import HoneyGuardLog
-from django_honeyguard.views import (FakeAdminView, FakeDjangoAdminView,
-                                     FakeWPAdminView)
+from django_honeyguard.views import (
+    FakeAdminView,
+    FakeDjangoAdminView,
+    FakeWPAdminView,
+)
 
 
 @pytest.mark.django_db
@@ -53,7 +56,9 @@ class TestFakeAdminView:
         """Test GET request when GET method detection is enabled."""
         from django.test import override_settings
 
-        with override_settings(HONEYGUARD={"ENABLE_GET_METHOD_DETECTION": True}):
+        with override_settings(
+            HONEYGUARD={"ENABLE_GET_METHOD_DETECTION": True}
+        ):
             view = FakeDjangoAdminView()
             request = rf.get("/admin/")
             view.request = request  # Set request
@@ -68,7 +73,9 @@ class TestFakeAdminView:
         """Test GET request when GET method detection is disabled."""
         from django.test import override_settings
 
-        with override_settings(HONEYGUARD={"ENABLE_GET_METHOD_DETECTION": False}):
+        with override_settings(
+            HONEYGUARD={"ENABLE_GET_METHOD_DETECTION": False}
+        ):
             view = FakeDjangoAdminView()
             request = rf.get("/admin/")
             view.request = request  # Set request
@@ -82,7 +89,9 @@ class TestFakeAdminView:
         from django.contrib.sessions.middleware import SessionMiddleware
 
         view = FakeAdminView()
-        request = rf.post("/admin/", data={"username": "user", "password": "pass"})
+        request = rf.post(
+            "/admin/", data={"username": "user", "password": "pass"}
+        )
 
         # Create a mock get_response
         get_response = Mock(return_value=Mock())
@@ -121,7 +130,9 @@ class TestFakeAdminView:
         }
         form_mock.data = {}
 
-        with patch("django_honeyguard.views.honeypot_triggered.send") as mock_send:
+        with patch(
+            "django_honeyguard.views.honeypot_triggered.send"
+        ) as mock_send:
             try:
                 response = view.form_valid(form_mock)
                 # Signal should be sent or view should render
@@ -161,7 +172,9 @@ class TestFakeAdminView:
 
         form_data = {"render_time": signed_time}
 
-        with patch("django_honeyguard.views.honeypot_triggered.send") as mock_send:
+        with patch(
+            "django_honeyguard.views.honeypot_triggered.send"
+        ) as mock_send:
             view.process_honeypot_trigger(request, form_data)
             assert mock_send.called
 
@@ -234,7 +247,8 @@ class TestFakeWPAdminView:
         ):
             view = FakeWPAdminView()
             assert (
-                "Error" in view.get_error_message() or len(view.get_error_message()) > 0
+                "Error" in view.get_error_message()
+                or len(view.get_error_message()) > 0
             )
 
     def test_form_class_is_wp_form(self):

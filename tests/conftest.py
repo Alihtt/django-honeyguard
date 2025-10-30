@@ -1,16 +1,15 @@
 """Pytest configuration and shared fixtures."""
 
-from datetime import datetime, timedelta
+from datetime import timedelta
 from typing import Dict
 
 import pytest
-from django.contrib.auth.models import User
-from django.core.signing import BadSignature, TimestampSigner
+from django.core.signing import TimestampSigner
 from django.http import HttpRequest
 from django.test import RequestFactory
 from django.utils import timezone
 
-from django_honeyguard.models import HoneyGuardLog, RequestMethod, TimingIssue
+from django_honeyguard.models import HoneyGuardLog, TimingIssue
 
 # Configure pytest-django
 pytest_plugins = ["pytest_django"]

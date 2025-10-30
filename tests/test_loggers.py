@@ -1,8 +1,5 @@
 """Tests for logging utilities."""
 
-import logging
-
-import pytest
 from django.test import override_settings
 
 from django_honeyguard.loggers import HoneyGuardLogger, get_logger

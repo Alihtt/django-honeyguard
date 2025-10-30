@@ -1,10 +1,12 @@
 """Tests for HoneyGuard forms."""
 
 from django import forms
-from django.test import override_settings
 
-from django_honeyguard.forms import (BaseFakeLoginForm, FakeDjangoLoginForm,
-                                     FakeWordPressLoginForm)
+from django_honeyguard.forms import (
+    BaseFakeLoginForm,
+    FakeDjangoLoginForm,
+    FakeWordPressLoginForm,
+)
 
 
 class TestBaseFakeLoginForm:
@@ -83,7 +85,10 @@ class TestFakeDjangoLoginForm:
         form = FakeDjangoLoginForm()
         password_field = form.fields["password"]
         assert isinstance(password_field.widget, forms.PasswordInput)
-        assert password_field.widget.attrs.get("autocomplete") == "current-password"
+        assert (
+            password_field.widget.attrs.get("autocomplete")
+            == "current-password"
+        )
 
     def test_username_max_length_from_settings(self):
         """Test that username max_length uses settings."""

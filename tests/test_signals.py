@@ -23,7 +23,9 @@ class TestHoneypotTriggeredSignal:
         rf = RequestFactory()
         mock_request = rf.get("/")
         honeypot_triggered.connect(handler)
-        honeypot_triggered.send(sender=self.__class__, request=mock_request, data={})
+        honeypot_triggered.send(
+            sender=self.__class__, request=mock_request, data={}
+        )
         honeypot_triggered.disconnect(handler)
 
     @pytest.mark.django_db

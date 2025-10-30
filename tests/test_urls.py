@@ -1,8 +1,5 @@
 """Tests for URL routing."""
 
-import pytest
-from django.urls import resolve, reverse
-
 from django_honeyguard.urls import app_name, urlpatterns
 
 
