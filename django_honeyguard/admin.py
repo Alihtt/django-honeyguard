@@ -158,7 +158,9 @@ class HoneyGuardLogAdmin(admin.ModelAdmin):
     ) -> HttpResponse:
         """Export selected logs to CSV format."""
         response = HttpResponse(content_type="text/csv")
-        response["Content-Disposition"] = 'attachment; filename="honeyguard_logs.csv"'
+        response["Content-Disposition"] = (
+            'attachment; filename="honeyguard_logs.csv"'
+        )
 
         writer = csv.writer(response)
         writer.writerow(
@@ -199,7 +201,9 @@ class HoneyGuardLogAdmin(admin.ModelAdmin):
         return response
 
     @admin.action(description="Archive logs older than 90 days")
-    def archive_old_logs(self, request: Any, queryset: QuerySet[HoneyGuardLog]) -> None:
+    def archive_old_logs(
+        self, request: Any, queryset: QuerySet[HoneyGuardLog]
+    ) -> None:
         """Archive logs older than 90 days."""
         cutoff_date = timezone.now() - timedelta(days=90)
         old_logs = queryset.filter(created_at__lt=cutoff_date)
