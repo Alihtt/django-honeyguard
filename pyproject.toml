@@ -36,9 +36,9 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/alihtt/django-honeyguard/tree/main"
-Documentation = "https://django-honeyguard.readthedocs.io/en/main/"
-Changelog = "https://github.com/alihtt/django-honeyguard/blob/main/CHANGES.rst"
+Homepage = "https://github.com/alihtt/django-honeyguard/"
+Documentation = "https://django-honeyguard.readthedocs.io/"
+Changelog = "https://django-honeyguard.readthedocs.io/en/latest/changelog.html"
 "Bug Tracker" = "https://github.com/alihtt/django-honeyguard/issues"
 "Source Code" = "https://github.com/alihtt/django-honeyguard"
 
