@@ -1,0 +1,212 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-03 13:59+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: admin.py:58
+msgid "Request Information"
+msgstr "اطلاعات درخواست"
+
+#: admin.py:70
+msgid "Authentication Attempt"
+msgstr "تلاش برای احراز هویت"
+
+#: admin.py:79
+msgid "Detection Flags"
+msgstr "پرچم‌های تشخیص"
+
+#: admin.py:91
+msgid "Request Metadata"
+msgstr "فراداده‌های درخواست"
+
+#: admin.py:108 models.py:36
+msgid "Username"
+msgstr "نام کاربری"
+
+#: admin.py:115
+msgid "Risk Score"
+msgstr "امتیاز خطر"
+
+#: admin.py:121
+msgid "High"
+msgstr "بالا"
+
+#: admin.py:124
+msgid "Medium"
+msgstr "متوسط"
+
+#: admin.py:127
+msgid "Low"
+msgstr "پایین"
+
+#: admin.py:139
+msgid "Request Summary"
+msgstr "خلاصه درخواست"
+
+#: admin.py:143
+msgid "IP"
+msgstr "آی‌پی"
+
+#: admin.py:144 models.py:28
+msgid "Path"
+msgstr "مسیر"
+
+#: admin.py:145
+msgid "Method"
+msgstr "روش"
+
+#: admin.py:153
+msgid "User-Agent"
+msgstr "عامل کاربر"
+
+#: admin.py:156
+msgid "Export selected logs to CSV"
+msgstr "صدور گزارش‌های انتخابی به CSV"
+
+#: admin.py:202
+msgid "Archive logs older than 90 days"
+msgstr "بایگانی گزارش‌های قدیمی‌تر از ۹۰ روز"
+
+#: admin.py:213
+#, python-format
+msgid "Successfully archived %(count)d log(s) older than 90 days."
+msgstr "%(count)d گزارش قدیمی‌تر از ۹۰ روز با موفقیت بایگانی شد."
+
+#: apps.py:13
+msgid "HoneyGuard"
+msgstr "هانی‌گارد"
+
+#: models.py:8
+msgid "Too Fast"
+msgstr "خیلی سریع"
+
+#: models.py:9
+msgid "Too Slow"
+msgstr "خیلی کند"
+
+#: models.py:10
+msgid "Valid Timing"
+msgstr "زمان‌بندی معتبر"
+
+#: models.py:14
+msgid "GET"
+msgstr "GET"
+
+#: models.py:15
+msgid "POST"
+msgstr "POST"
+
+#: models.py:23
+msgid "IP Address"
+msgstr "آدرس آی‌پی"
+
+#: models.py:25
+msgid "IP address of the requester"
+msgstr "آدرس آی‌پی درخواست‌کننده"
+
+#: models.py:31
+msgid "URL path accessed"
+msgstr "مسیر URL دسترسی شده"
+
+#: models.py:40
+msgid "Username submitted in login attempt"
+msgstr "نام کاربری ارسال شده در تلاش برای ورود"
+
+#: models.py:43
+msgid "Password"
+msgstr "رمز عبور"
+
+#: models.py:47
+msgid "Password submitted in login attempt"
+msgstr "رمز عبور ارسال شده در تلاش برای ورود"
+
+#: models.py:52
+msgid "User Agent"
+msgstr "عامل کاربر"
+
+#: models.py:55
+msgid "User agent string from request"
+msgstr "رشته عامل کاربر از درخواست"
+
+#: models.py:58
+msgid "Referer"
+msgstr "ارجاع‌دهنده"
+
+#: models.py:62
+msgid "HTTP referer header"
+msgstr "هدر ارجاع‌دهنده HTTP"
+
+#: models.py:65
+msgid "Accept Language"
+msgstr "زبان پذیرفته شده"
+
+#: models.py:71
+msgid "Accept Encoding"
+msgstr "رمزگذاری پذیرفته شده"
+
+#: models.py:77
+msgid "Request Method"
+msgstr "روش درخواست"
+
+#: models.py:85
+msgid "Honeypot Triggered"
+msgstr "هانی‌پات فعال شد"
+
+#: models.py:88
+msgid "Whether the honeypot field was filled"
+msgstr "آیا فیلد هانی‌پات پر شده است"
+
+#: models.py:91
+msgid "Timing Issue"
+msgstr "مشکل زمان‌بندی"
+
+#: models.py:95
+msgid "Type of timing anomaly detected"
+msgstr "نوع ناهنجاری زمان‌بندی تشخیص داده شده"
+
+#: models.py:98
+msgid "Elapsed Time"
+msgstr "زمان سپری شده"
+
+#: models.py:101
+msgid "Time in seconds between form render and submission"
+msgstr "زمان به ثانیه بین نمایش و ارسال فرم"
+
+#: models.py:106
+msgid "Raw Metadata"
+msgstr "فراداده‌های خام"
+
+#: models.py:109
+msgid "Raw request metadata for debugging"
+msgstr "فراداده‌های خام درخواست برای اشکال‌زدایی"
+
+#: models.py:113
+msgid "Created At"
+msgstr "ایجاد شده در"
+
+#: models.py:114
+msgid "Updated At"
+msgstr "به‌روزرسانی شده در"
+
+#: models.py:123
+msgid "HoneyGuard Log"
+msgstr "گزارش هانی‌گارد"
+
+#: models.py:124
+msgid "HoneyGuard Logs"
+msgstr "گزارش‌های هانی‌گارد"

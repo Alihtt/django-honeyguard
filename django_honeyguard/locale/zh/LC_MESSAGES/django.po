@@ -1,0 +1,211 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-03 13:59+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: admin.py:58
+msgid "Request Information"
+msgstr "请求信息"
+
+#: admin.py:70
+msgid "Authentication Attempt"
+msgstr "认证尝试"
+
+#: admin.py:79
+msgid "Detection Flags"
+msgstr "检测标志"
+
+#: admin.py:91
+msgid "Request Metadata"
+msgstr "请求元数据"
+
+#: admin.py:108 models.py:36
+msgid "Username"
+msgstr "用户名"
+
+#: admin.py:115
+msgid "Risk Score"
+msgstr "风险评分"
+
+#: admin.py:121
+msgid "High"
+msgstr "高"
+
+#: admin.py:124
+msgid "Medium"
+msgstr "中"
+
+#: admin.py:127
+msgid "Low"
+msgstr "低"
+
+#: admin.py:139
+msgid "Request Summary"
+msgstr "请求摘要"
+
+#: admin.py:143
+msgid "IP"
+msgstr "IP"
+
+#: admin.py:144 models.py:28
+msgid "Path"
+msgstr "路径"
+
+#: admin.py:145
+msgid "Method"
+msgstr "方法"
+
+#: admin.py:153
+msgid "User-Agent"
+msgstr "用户代理"
+
+#: admin.py:156
+msgid "Export selected logs to CSV"
+msgstr "将选定的日志导出为CSV"
+
+#: admin.py:202
+msgid "Archive logs older than 90 days"
+msgstr "归档超过90天的日志"
+
+#: admin.py:213
+#, python-format
+msgid "Successfully archived %(count)d log(s) older than 90 days."
+msgstr "已成功归档%(count)d条超过90天的日志。"
+
+#: apps.py:13
+msgid "HoneyGuard"
+msgstr "HoneyGuard"
+
+#: models.py:8
+msgid "Too Fast"
+msgstr "太快"
+
+#: models.py:9
+msgid "Too Slow"
+msgstr "太慢"
+
+#: models.py:10
+msgid "Valid Timing"
+msgstr "有效时间"
+
+#: models.py:14
+msgid "GET"
+msgstr "GET"
+
+#: models.py:15
+msgid "POST"
+msgstr "POST"
+
+#: models.py:23
+msgid "IP Address"
+msgstr "IP地址"
+
+#: models.py:25
+msgid "IP address of the requester"
+msgstr "请求者的IP地址"
+
+#: models.py:31
+msgid "URL path accessed"
+msgstr "访问的URL路径"
+
+#: models.py:40
+msgid "Username submitted in login attempt"
+msgstr "登录尝试中提交的用户名"
+
+#: models.py:43
+msgid "Password"
+msgstr "密码"
+
+#: models.py:47
+msgid "Password submitted in login attempt"
+msgstr "登录尝试中提交的密码"
+
+#: models.py:52
+msgid "User Agent"
+msgstr "用户代理"
+
+#: models.py:55
+msgid "User agent string from request"
+msgstr "请求中的用户代理字符串"
+
+#: models.py:58
+msgid "Referer"
+msgstr "引用页"
+
+#: models.py:62
+msgid "HTTP referer header"
+msgstr "HTTP引用页头"
+
+#: models.py:65
+msgid "Accept Language"
+msgstr "接受语言"
+
+#: models.py:71
+msgid "Accept Encoding"
+msgstr "接受编码"
+
+#: models.py:77
+msgid "Request Method"
+msgstr "请求方法"
+
+#: models.py:85
+msgid "Honeypot Triggered"
+msgstr "蜜罐触发"
+
+#: models.py:88
+msgid "Whether the honeypot field was filled"
+msgstr "蜜罐字段是否已填写"
+
+#: models.py:91
+msgid "Timing Issue"
+msgstr "时间问题"
+
+#: models.py:95
+msgid "Type of timing anomaly detected"
+msgstr "检测到的时间异常类型"
+
+#: models.py:98
+msgid "Elapsed Time"
+msgstr "经过时间"
+
+#: models.py:101
+msgid "Time in seconds between form render and submission"
+msgstr "表单渲染和提交之间的秒数"
+
+#: models.py:106
+msgid "Raw Metadata"
+msgstr "原始元数据"
+
+#: models.py:109
+msgid "Raw request metadata for debugging"
+msgstr "用于调试的原始请求元数据"
+
+#: models.py:113
+msgid "Created At"
+msgstr "创建时间"
+
+#: models.py:114
+msgid "Updated At"
+msgstr "更新时间"
+
+#: models.py:123
+msgid "HoneyGuard Log"
+msgstr "HoneyGuard日志"
+
+#: models.py:124
+msgid "HoneyGuard Logs"
+msgstr "HoneyGuard日志"

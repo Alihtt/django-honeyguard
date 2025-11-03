@@ -1,0 +1,212 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-03 13:59+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: admin.py:58
+msgid "Request Information"
+msgstr "Πληροφορίες αιτήματος"
+
+#: admin.py:70
+msgid "Authentication Attempt"
+msgstr "Απόπειρα ελέγχου ταυτότητας"
+
+#: admin.py:79
+msgid "Detection Flags"
+msgstr "Σημαίες ανίχνευσης"
+
+#: admin.py:91
+msgid "Request Metadata"
+msgstr "Μεταδεδομένα αιτήματος"
+
+#: admin.py:108 models.py:36
+msgid "Username"
+msgstr "Όνομα χρήστη"
+
+#: admin.py:115
+msgid "Risk Score"
+msgstr "Βαθμολογία κινδύνου"
+
+#: admin.py:121
+msgid "High"
+msgstr "Υψηλός"
+
+#: admin.py:124
+msgid "Medium"
+msgstr "Μέτριος"
+
+#: admin.py:127
+msgid "Low"
+msgstr "Χαμηλός"
+
+#: admin.py:139
+msgid "Request Summary"
+msgstr "Περίληψη αιτήματος"
+
+#: admin.py:143
+msgid "IP"
+msgstr "IP"
+
+#: admin.py:144 models.py:28
+msgid "Path"
+msgstr "Διαδρομή"
+
+#: admin.py:145
+msgid "Method"
+msgstr "Μέθοδος"
+
+#: admin.py:153
+msgid "User-Agent"
+msgstr "User-Agent"
+
+#: admin.py:156
+msgid "Export selected logs to CSV"
+msgstr "Εξαγωγή επιλεγμένων αρχείων καταγραφής σε CSV"
+
+#: admin.py:202
+msgid "Archive logs older than 90 days"
+msgstr "Αρχειοθέτηση αρχείων καταγραφής παλαιότερων των 90 ημερών"
+
+#: admin.py:213
+#, python-format
+msgid "Successfully archived %(count)d log(s) older than 90 days."
+msgstr "Επιτυχής αρχειοθέτηση %(count)d αρχείου/αρχείων καταγραφής παλαιότερων των 90 ημερών."
+
+#: apps.py:13
+msgid "HoneyGuard"
+msgstr "HoneyGuard"
+
+#: models.py:8
+msgid "Too Fast"
+msgstr "Πολύ γρήγορα"
+
+#: models.py:9
+msgid "Too Slow"
+msgstr "Πολύ αργά"
+
+#: models.py:10
+msgid "Valid Timing"
+msgstr "Έγκυρος χρόνος"
+
+#: models.py:14
+msgid "GET"
+msgstr "GET"
+
+#: models.py:15
+msgid "POST"
+msgstr "POST"
+
+#: models.py:23
+msgid "IP Address"
+msgstr "Διεύθυνση IP"
+
+#: models.py:25
+msgid "IP address of the requester"
+msgstr "Διεύθυνση IP του αιτούντος"
+
+#: models.py:31
+msgid "URL path accessed"
+msgstr "Διαδρομή URL πρόσβασης"
+
+#: models.py:40
+msgid "Username submitted in login attempt"
+msgstr "Όνομα χρήστη που υποβλήθηκε στην απόπειρα σύνδεσης"
+
+#: models.py:43
+msgid "Password"
+msgstr "Κωδικός πρόσβασης"
+
+#: models.py:47
+msgid "Password submitted in login attempt"
+msgstr "Κωδικός πρόσβασης που υποβλήθηκε στην απόπειρα σύνδεσης"
+
+#: models.py:52
+msgid "User Agent"
+msgstr "User Agent"
+
+#: models.py:55
+msgid "User agent string from request"
+msgstr "Συμβολοσειρά user agent από το αίτημα"
+
+#: models.py:58
+msgid "Referer"
+msgstr "Παραπομπή"
+
+#: models.py:62
+msgid "HTTP referer header"
+msgstr "Κεφαλίδα HTTP referer"
+
+#: models.py:65
+msgid "Accept Language"
+msgstr "Αποδεκτή γλώσσα"
+
+#: models.py:71
+msgid "Accept Encoding"
+msgstr "Αποδεκτή κωδικοποίηση"
+
+#: models.py:77
+msgid "Request Method"
+msgstr "Μέθοδος αιτήματος"
+
+#: models.py:85
+msgid "Honeypot Triggered"
+msgstr "Honeypot ενεργοποιήθηκε"
+
+#: models.py:88
+msgid "Whether the honeypot field was filled"
+msgstr "Εάν το πεδίο honeypot συμπληρώθηκε"
+
+#: models.py:91
+msgid "Timing Issue"
+msgstr "Πρόβλημα χρονισμού"
+
+#: models.py:95
+msgid "Type of timing anomaly detected"
+msgstr "Είδος ανωμαλίας χρονισμού που ανιχνεύθηκε"
+
+#: models.py:98
+msgid "Elapsed Time"
+msgstr "Χρόνος που πέρασε"
+
+#: models.py:101
+msgid "Time in seconds between form render and submission"
+msgstr "Χρόνος σε δευτερόλεπτα μεταξύ απόδοσης φόρμας και υποβολής"
+
+#: models.py:106
+msgid "Raw Metadata"
+msgstr "Ακατέργαστα μεταδεδομένα"
+
+#: models.py:109
+msgid "Raw request metadata for debugging"
+msgstr "Ακατέργαστα μεταδεδομένα αιτήματος για αποσφαλμάτωση"
+
+#: models.py:113
+msgid "Created At"
+msgstr "Δημιουργήθηκε στις"
+
+#: models.py:114
+msgid "Updated At"
+msgstr "Ενημερώθηκε στις"
+
+#: models.py:123
+msgid "HoneyGuard Log"
+msgstr "Αρχείο καταγραφής HoneyGuard"
+
+#: models.py:124
+msgid "HoneyGuard Logs"
+msgstr "Αρχεία καταγραφής HoneyGuard"

@@ -20,20 +20,27 @@ class HoneyGuardLog(models.Model):
 
     # Basic Information
     ip_address = models.GenericIPAddressField(
-        db_index=True, help_text=_("IP address of the requester")
+        verbose_name=_("IP Address"),
+        db_index=True,
+        help_text=_("IP address of the requester"),
     )
     path = models.CharField(
-        max_length=255, db_index=True, help_text=_("URL path accessed")
+        verbose_name=_("Path"),
+        max_length=255,
+        db_index=True,
+        help_text=_("URL path accessed"),
     )
 
     # Authentication Attempt
     username = models.CharField(
+        verbose_name=_("Username"),
         max_length=255,
         blank=True,
         default="",
         help_text=_("Username submitted in login attempt"),
     )
     password = models.CharField(
+        verbose_name=_("Password"),
         max_length=255,
         blank=True,
         default="",
@@ -42,33 +49,53 @@ class HoneyGuardLog(models.Model):
 
     # Request Metadata
     user_agent = models.TextField(
-        blank=True, default="", help_text=_("User agent string from request")
+        verbose_name=_("User Agent"),
+        blank=True,
+        default="",
+        help_text=_("User agent string from request"),
     )
     referer = models.CharField(
+        verbose_name=_("Referer"),
         max_length=500,
         blank=True,
         default="",
         help_text=_("HTTP referer header"),
     )
-    accept_language = models.CharField(max_length=255, blank=True, default="")
-    accept_encoding = models.CharField(max_length=255, blank=True, default="")
+    accept_language = models.CharField(
+        verbose_name=_("Accept Language"),
+        max_length=255,
+        blank=True,
+        default="",
+    )
+    accept_encoding = models.CharField(
+        verbose_name=_("Accept Encoding"),
+        max_length=255,
+        blank=True,
+        default="",
+    )
     method = models.CharField(
-        max_length=10, default=RequestMethod.POST, choices=RequestMethod.choices
+        verbose_name=_("Request Method"),
+        max_length=10,
+        default=RequestMethod.POST,
+        choices=RequestMethod.choices,
     )
 
     # Detection Flags
     honeypot_triggered = models.BooleanField(
+        verbose_name=_("Honeypot Triggered"),
         default=False,
         db_index=True,
         help_text=_("Whether the honeypot field was filled"),
     )
     timing_issue = models.CharField(
+        verbose_name=_("Timing Issue"),
         max_length=20,
         choices=TimingIssue.choices,
         default=TimingIssue.VALID,
         help_text=_("Type of timing anomaly detected"),
     )
     elapsed_time = models.FloatField(
+        verbose_name=_("Elapsed Time"),
         null=True,
         blank=True,
         help_text=_("Time in seconds between form render and submission"),
@@ -76,14 +103,15 @@ class HoneyGuardLog(models.Model):
 
     # Additional Metadata
     raw_metadata = models.JSONField(
+        verbose_name=_("Raw Metadata"),
         default=dict,
         blank=True,
         help_text=_("Raw request metadata for debugging"),
     )
 
     # Timestamps
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(verbose_name=_("Created At"), auto_now_add=True)
+    updated_at = models.DateTimeField(verbose_name=_("Updated At"), auto_now=True)
 
     class Meta:
         ordering = ["-created_at"]

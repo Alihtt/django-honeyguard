@@ -1,0 +1,212 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-03 13:59+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: admin.py:58
+msgid "Request Information"
+msgstr "Информация за заявка"
+
+#: admin.py:70
+msgid "Authentication Attempt"
+msgstr "Опит за удостоверяване"
+
+#: admin.py:79
+msgid "Detection Flags"
+msgstr "Флагове за откриване"
+
+#: admin.py:91
+msgid "Request Metadata"
+msgstr "Метаданни на заявката"
+
+#: admin.py:108 models.py:36
+msgid "Username"
+msgstr "Потребителско име"
+
+#: admin.py:115
+msgid "Risk Score"
+msgstr "Рискова оценка"
+
+#: admin.py:121
+msgid "High"
+msgstr "Висок"
+
+#: admin.py:124
+msgid "Medium"
+msgstr "Среден"
+
+#: admin.py:127
+msgid "Low"
+msgstr "Нисък"
+
+#: admin.py:139
+msgid "Request Summary"
+msgstr "Резюме на заявката"
+
+#: admin.py:143
+msgid "IP"
+msgstr "IP"
+
+#: admin.py:144 models.py:28
+msgid "Path"
+msgstr "Път"
+
+#: admin.py:145
+msgid "Method"
+msgstr "Метод"
+
+#: admin.py:153
+msgid "User-Agent"
+msgstr "Потребителски агент"
+
+#: admin.py:156
+msgid "Export selected logs to CSV"
+msgstr "Експортиране на избрани дневници в CSV"
+
+#: admin.py:202
+msgid "Archive logs older than 90 days"
+msgstr "Архивиране на дневници по-стари от 90 дни"
+
+#: admin.py:213
+#, python-format
+msgid "Successfully archived %(count)d log(s) older than 90 days."
+msgstr "Успешно архивирани %(count)d дневник(а) по-стари от 90 дни."
+
+#: apps.py:13
+msgid "HoneyGuard"
+msgstr "HoneyGuard"
+
+#: models.py:8
+msgid "Too Fast"
+msgstr "Твърде бързо"
+
+#: models.py:9
+msgid "Too Slow"
+msgstr "Твърде бавно"
+
+#: models.py:10
+msgid "Valid Timing"
+msgstr "Валидно време"
+
+#: models.py:14
+msgid "GET"
+msgstr "GET"
+
+#: models.py:15
+msgid "POST"
+msgstr "POST"
+
+#: models.py:23
+msgid "IP Address"
+msgstr "IP адрес"
+
+#: models.py:25
+msgid "IP address of the requester"
+msgstr "IP адрес на заявителя"
+
+#: models.py:31
+msgid "URL path accessed"
+msgstr "Достъпен URL път"
+
+#: models.py:40
+msgid "Username submitted in login attempt"
+msgstr "Потребителско име, изпратено при опит за вход"
+
+#: models.py:43
+msgid "Password"
+msgstr "Парола"
+
+#: models.py:47
+msgid "Password submitted in login attempt"
+msgstr "Парола, изпратена при опит за вход"
+
+#: models.py:52
+msgid "User Agent"
+msgstr "Потребителски агент"
+
+#: models.py:55
+msgid "User agent string from request"
+msgstr "Низ на потребителски агент от заявката"
+
+#: models.py:58
+msgid "Referer"
+msgstr "Препращач"
+
+#: models.py:62
+msgid "HTTP referer header"
+msgstr "HTTP заглавка referer"
+
+#: models.py:65
+msgid "Accept Language"
+msgstr "Приемане на език"
+
+#: models.py:71
+msgid "Accept Encoding"
+msgstr "Приемане на кодиране"
+
+#: models.py:77
+msgid "Request Method"
+msgstr "Метод на заявка"
+
+#: models.py:85
+msgid "Honeypot Triggered"
+msgstr "Honeypot задействан"
+
+#: models.py:88
+msgid "Whether the honeypot field was filled"
+msgstr "Дали полето honeypot е попълнено"
+
+#: models.py:91
+msgid "Timing Issue"
+msgstr "Проблем със синхронизацията"
+
+#: models.py:95
+msgid "Type of timing anomaly detected"
+msgstr "Вид открита аномалия във времето"
+
+#: models.py:98
+msgid "Elapsed Time"
+msgstr "Изминало време"
+
+#: models.py:101
+msgid "Time in seconds between form render and submission"
+msgstr "Време в секунди между рендирането на формуляра и подаването"
+
+#: models.py:106
+msgid "Raw Metadata"
+msgstr "Сурови метаданни"
+
+#: models.py:109
+msgid "Raw request metadata for debugging"
+msgstr "Сурови метаданни на заявката за отстраняване на грешки"
+
+#: models.py:113
+msgid "Created At"
+msgstr "Създадено на"
+
+#: models.py:114
+msgid "Updated At"
+msgstr "Актуализирано на"
+
+#: models.py:123
+msgid "HoneyGuard Log"
+msgstr "Дневник HoneyGuard"
+
+#: models.py:124
+msgid "HoneyGuard Logs"
+msgstr "Дневници HoneyGuard"

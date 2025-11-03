@@ -1,0 +1,213 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-03 13:59+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n "
+">= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
+
+#: admin.py:58
+msgid "Request Information"
+msgstr "Informácie o požiadavke"
+
+#: admin.py:70
+msgid "Authentication Attempt"
+msgstr "Pokus o overenie"
+
+#: admin.py:79
+msgid "Detection Flags"
+msgstr "Príznaky detekcie"
+
+#: admin.py:91
+msgid "Request Metadata"
+msgstr "Metadáta požiadavky"
+
+#: admin.py:108 models.py:36
+msgid "Username"
+msgstr "Používateľské meno"
+
+#: admin.py:115
+msgid "Risk Score"
+msgstr "Skóre rizika"
+
+#: admin.py:121
+msgid "High"
+msgstr "Vysoké"
+
+#: admin.py:124
+msgid "Medium"
+msgstr "Stredné"
+
+#: admin.py:127
+msgid "Low"
+msgstr "Nízke"
+
+#: admin.py:139
+msgid "Request Summary"
+msgstr "Súhrn požiadavky"
+
+#: admin.py:143
+msgid "IP"
+msgstr "IP"
+
+#: admin.py:144 models.py:28
+msgid "Path"
+msgstr "Cesta"
+
+#: admin.py:145
+msgid "Method"
+msgstr "Metóda"
+
+#: admin.py:153
+msgid "User-Agent"
+msgstr "User-Agent"
+
+#: admin.py:156
+msgid "Export selected logs to CSV"
+msgstr "Exportovať vybrané záznamy do CSV"
+
+#: admin.py:202
+msgid "Archive logs older than 90 days"
+msgstr "Archivovať záznamy staršie ako 90 dní"
+
+#: admin.py:213
+#, python-format
+msgid "Successfully archived %(count)d log(s) older than 90 days."
+msgstr "Úspešne archivovaných %(count)d záznam(ov) starších ako 90 dní."
+
+#: apps.py:13
+msgid "HoneyGuard"
+msgstr "HoneyGuard"
+
+#: models.py:8
+msgid "Too Fast"
+msgstr "Príliš rýchlo"
+
+#: models.py:9
+msgid "Too Slow"
+msgstr "Príliš pomaly"
+
+#: models.py:10
+msgid "Valid Timing"
+msgstr "Platný čas"
+
+#: models.py:14
+msgid "GET"
+msgstr "GET"
+
+#: models.py:15
+msgid "POST"
+msgstr "POST"
+
+#: models.py:23
+msgid "IP Address"
+msgstr "IP adresa"
+
+#: models.py:25
+msgid "IP address of the requester"
+msgstr "IP adresa žiadateľa"
+
+#: models.py:31
+msgid "URL path accessed"
+msgstr "Prístupná cesta URL"
+
+#: models.py:40
+msgid "Username submitted in login attempt"
+msgstr "Používateľské meno odoslané pri pokuse o prihlásenie"
+
+#: models.py:43
+msgid "Password"
+msgstr "Heslo"
+
+#: models.py:47
+msgid "Password submitted in login attempt"
+msgstr "Heslo odoslané pri pokuse o prihlásenie"
+
+#: models.py:52
+msgid "User Agent"
+msgstr "User Agent"
+
+#: models.py:55
+msgid "User agent string from request"
+msgstr "Reťazec user agent z požiadavky"
+
+#: models.py:58
+msgid "Referer"
+msgstr "Odkazovač"
+
+#: models.py:62
+msgid "HTTP referer header"
+msgstr "HTTP hlavička referer"
+
+#: models.py:65
+msgid "Accept Language"
+msgstr "Prijatý jazyk"
+
+#: models.py:71
+msgid "Accept Encoding"
+msgstr "Prijaté kódovanie"
+
+#: models.py:77
+msgid "Request Method"
+msgstr "Metóda požiadavky"
+
+#: models.py:85
+msgid "Honeypot Triggered"
+msgstr "Honeypot spustený"
+
+#: models.py:88
+msgid "Whether the honeypot field was filled"
+msgstr "Či bolo pole honeypot vyplnené"
+
+#: models.py:91
+msgid "Timing Issue"
+msgstr "Problém s časovaním"
+
+#: models.py:95
+msgid "Type of timing anomaly detected"
+msgstr "Typ zistený časovej anomálie"
+
+#: models.py:98
+msgid "Elapsed Time"
+msgstr "Uplynulý čas"
+
+#: models.py:101
+msgid "Time in seconds between form render and submission"
+msgstr "Čas v sekundách medzi vykreslením formulára a odoslaním"
+
+#: models.py:106
+msgid "Raw Metadata"
+msgstr "Surové metadáta"
+
+#: models.py:109
+msgid "Raw request metadata for debugging"
+msgstr "Surové metadáta požiadavky na ladenie"
+
+#: models.py:113
+msgid "Created At"
+msgstr "Vytvorené"
+
+#: models.py:114
+msgid "Updated At"
+msgstr "Aktualizované"
+
+#: models.py:123
+msgid "HoneyGuard Log"
+msgstr "Záznam HoneyGuard"
+
+#: models.py:124
+msgid "HoneyGuard Logs"
+msgstr "Záznamy HoneyGuard"

@@ -1,0 +1,212 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-03 13:59+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: admin.py:58
+msgid "Request Information"
+msgstr "Thông tin Yêu cầu"
+
+#: admin.py:70
+msgid "Authentication Attempt"
+msgstr "Cố gắng Xác thực"
+
+#: admin.py:79
+msgid "Detection Flags"
+msgstr "Cờ Phát hiện"
+
+#: admin.py:91
+msgid "Request Metadata"
+msgstr "Siêu dữ liệu Yêu cầu"
+
+#: admin.py:108 models.py:36
+msgid "Username"
+msgstr "Tên người dùng"
+
+#: admin.py:115
+msgid "Risk Score"
+msgstr "Điểm Rủi ro"
+
+#: admin.py:121
+msgid "High"
+msgstr "Cao"
+
+#: admin.py:124
+msgid "Medium"
+msgstr "Trung bình"
+
+#: admin.py:127
+msgid "Low"
+msgstr "Thấp"
+
+#: admin.py:139
+msgid "Request Summary"
+msgstr "Tóm tắt Yêu cầu"
+
+#: admin.py:143
+msgid "IP"
+msgstr "IP"
+
+#: admin.py:144 models.py:28
+msgid "Path"
+msgstr "Đường dẫn"
+
+#: admin.py:145
+msgid "Method"
+msgstr "Phương thức"
+
+#: admin.py:153
+msgid "User-Agent"
+msgstr "User-Agent"
+
+#: admin.py:156
+msgid "Export selected logs to CSV"
+msgstr "Xuất nhật ký đã chọn sang CSV"
+
+#: admin.py:202
+msgid "Archive logs older than 90 days"
+msgstr "Lưu trữ nhật ký cũ hơn 90 ngày"
+
+#: admin.py:213
+#, python-format
+msgid "Successfully archived %(count)d log(s) older than 90 days."
+msgstr "Đã lưu trữ thành công %(count)d nhật ký cũ hơn 90 ngày."
+
+#: apps.py:13
+msgid "HoneyGuard"
+msgstr "HoneyGuard"
+
+#: models.py:8
+msgid "Too Fast"
+msgstr "Quá Nhanh"
+
+#: models.py:9
+msgid "Too Slow"
+msgstr "Quá Chậm"
+
+#: models.py:10
+msgid "Valid Timing"
+msgstr "Thời gian Hợp lệ"
+
+#: models.py:14
+msgid "GET"
+msgstr "GET"
+
+#: models.py:15
+msgid "POST"
+msgstr "POST"
+
+#: models.py:23
+msgid "IP Address"
+msgstr "Địa chỉ IP"
+
+#: models.py:25
+msgid "IP address of the requester"
+msgstr "Địa chỉ IP của người yêu cầu"
+
+#: models.py:31
+msgid "URL path accessed"
+msgstr "Đường dẫn URL được truy cập"
+
+#: models.py:40
+msgid "Username submitted in login attempt"
+msgstr "Tên người dùng đã gửi trong lần đăng nhập"
+
+#: models.py:43
+msgid "Password"
+msgstr "Mật khẩu"
+
+#: models.py:47
+msgid "Password submitted in login attempt"
+msgstr "Mật khẩu đã gửi trong lần đăng nhập"
+
+#: models.py:52
+msgid "User Agent"
+msgstr "User Agent"
+
+#: models.py:55
+msgid "User agent string from request"
+msgstr "Chuỗi user agent từ yêu cầu"
+
+#: models.py:58
+msgid "Referer"
+msgstr "Referer"
+
+#: models.py:62
+msgid "HTTP referer header"
+msgstr "Header HTTP referer"
+
+#: models.py:65
+msgid "Accept Language"
+msgstr "Ngôn ngữ Chấp nhận"
+
+#: models.py:71
+msgid "Accept Encoding"
+msgstr "Mã hóa Chấp nhận"
+
+#: models.py:77
+msgid "Request Method"
+msgstr "Phương thức Yêu cầu"
+
+#: models.py:85
+msgid "Honeypot Triggered"
+msgstr "Honeypot Đã Kích hoạt"
+
+#: models.py:88
+msgid "Whether the honeypot field was filled"
+msgstr "Liệu trường honeypot đã được điền"
+
+#: models.py:91
+msgid "Timing Issue"
+msgstr "Vấn đề Thời gian"
+
+#: models.py:95
+msgid "Type of timing anomaly detected"
+msgstr "Loại bất thường về thời gian được phát hiện"
+
+#: models.py:98
+msgid "Elapsed Time"
+msgstr "Thời gian Trôi qua"
+
+#: models.py:101
+msgid "Time in seconds between form render and submission"
+msgstr "Thời gian tính bằng giây giữa hiển thị biểu mẫu và gửi"
+
+#: models.py:106
+msgid "Raw Metadata"
+msgstr "Siêu dữ liệu Thô"
+
+#: models.py:109
+msgid "Raw request metadata for debugging"
+msgstr "Siêu dữ liệu yêu cầu thô để gỡ lỗi"
+
+#: models.py:113
+msgid "Created At"
+msgstr "Tạo Lúc"
+
+#: models.py:114
+msgid "Updated At"
+msgstr "Cập nhật Lúc"
+
+#: models.py:123
+msgid "HoneyGuard Log"
+msgstr "Nhật ký HoneyGuard"
+
+#: models.py:124
+msgid "HoneyGuard Logs"
+msgstr "Nhật ký HoneyGuard"

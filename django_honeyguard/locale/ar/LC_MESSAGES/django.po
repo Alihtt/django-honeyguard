@@ -1,0 +1,213 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-03 13:59+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: admin.py:58
+msgid "Request Information"
+msgstr "معلومات الطلب"
+
+#: admin.py:70
+msgid "Authentication Attempt"
+msgstr "محاولة المصادقة"
+
+#: admin.py:79
+msgid "Detection Flags"
+msgstr "إشارات الكشف"
+
+#: admin.py:91
+msgid "Request Metadata"
+msgstr "البيانات الوصفية للطلب"
+
+#: admin.py:108 models.py:36
+msgid "Username"
+msgstr "اسم المستخدم"
+
+#: admin.py:115
+msgid "Risk Score"
+msgstr "درجة المخاطر"
+
+#: admin.py:121
+msgid "High"
+msgstr "عالي"
+
+#: admin.py:124
+msgid "Medium"
+msgstr "متوسط"
+
+#: admin.py:127
+msgid "Low"
+msgstr "منخفض"
+
+#: admin.py:139
+msgid "Request Summary"
+msgstr "ملخص الطلب"
+
+#: admin.py:143
+msgid "IP"
+msgstr "IP"
+
+#: admin.py:144 models.py:28
+msgid "Path"
+msgstr "المسار"
+
+#: admin.py:145
+msgid "Method"
+msgstr "الطريقة"
+
+#: admin.py:153
+msgid "User-Agent"
+msgstr "وكيل المستخدم"
+
+#: admin.py:156
+msgid "Export selected logs to CSV"
+msgstr "تصدير السجلات المحددة إلى CSV"
+
+#: admin.py:202
+msgid "Archive logs older than 90 days"
+msgstr "أرشفة السجلات الأقدم من 90 يوماً"
+
+#: admin.py:213
+#, python-format
+msgid "Successfully archived %(count)d log(s) older than 90 days."
+msgstr "تم أرشفة %(count)d سجل (سجلات) الأقدم من 90 يوماً بنجاح."
+
+#: apps.py:13
+msgid "HoneyGuard"
+msgstr "هوني جارد"
+
+#: models.py:8
+msgid "Too Fast"
+msgstr "سريع جداً"
+
+#: models.py:9
+msgid "Too Slow"
+msgstr "بطيء جداً"
+
+#: models.py:10
+msgid "Valid Timing"
+msgstr "توقيت صالح"
+
+#: models.py:14
+msgid "GET"
+msgstr "GET"
+
+#: models.py:15
+msgid "POST"
+msgstr "POST"
+
+#: models.py:23
+msgid "IP Address"
+msgstr "عنوان IP"
+
+#: models.py:25
+msgid "IP address of the requester"
+msgstr "عنوان IP لمقدم الطلب"
+
+#: models.py:31
+msgid "URL path accessed"
+msgstr "مسار URL الذي تم الوصول إليه"
+
+#: models.py:40
+msgid "Username submitted in login attempt"
+msgstr "اسم المستخدم المقدم في محاولة تسجيل الدخول"
+
+#: models.py:43
+msgid "Password"
+msgstr "كلمة المرور"
+
+#: models.py:47
+msgid "Password submitted in login attempt"
+msgstr "كلمة المرور المقدمة في محاولة تسجيل الدخول"
+
+#: models.py:52
+msgid "User Agent"
+msgstr "وكيل المستخدم"
+
+#: models.py:55
+msgid "User agent string from request"
+msgstr "سلسلة وكيل المستخدم من الطلب"
+
+#: models.py:58
+msgid "Referer"
+msgstr "المُحيل"
+
+#: models.py:62
+msgid "HTTP referer header"
+msgstr "رأس HTTP للمُحيل"
+
+#: models.py:65
+msgid "Accept Language"
+msgstr "اللغة المقبولة"
+
+#: models.py:71
+msgid "Accept Encoding"
+msgstr "الترميز المقبول"
+
+#: models.py:77
+msgid "Request Method"
+msgstr "طريقة الطلب"
+
+#: models.py:85
+msgid "Honeypot Triggered"
+msgstr "تم تفعيل الفخ"
+
+#: models.py:88
+msgid "Whether the honeypot field was filled"
+msgstr "ما إذا كان حقل الفخ قد تم ملؤه"
+
+#: models.py:91
+msgid "Timing Issue"
+msgstr "مشكلة التوقيت"
+
+#: models.py:95
+msgid "Type of timing anomaly detected"
+msgstr "نوع شذوذ التوقيت المكتشف"
+
+#: models.py:98
+msgid "Elapsed Time"
+msgstr "الوقت المنقضي"
+
+#: models.py:101
+msgid "Time in seconds between form render and submission"
+msgstr "الوقت بالثواني بين عرض النموذج وإرساله"
+
+#: models.py:106
+msgid "Raw Metadata"
+msgstr "البيانات الوصفية الخام"
+
+#: models.py:109
+msgid "Raw request metadata for debugging"
+msgstr "البيانات الوصفية الخام للطلب لتصحيح الأخطاء"
+
+#: models.py:113
+msgid "Created At"
+msgstr "تاريخ الإنشاء"
+
+#: models.py:114
+msgid "Updated At"
+msgstr "تاريخ التحديث"
+
+#: models.py:123
+msgid "HoneyGuard Log"
+msgstr "سجل هوني جارد"
+
+#: models.py:124
+msgid "HoneyGuard Logs"
+msgstr "سجلات هوني جارد"

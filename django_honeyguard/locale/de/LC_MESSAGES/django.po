@@ -1,0 +1,212 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-03 13:59+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: admin.py:58
+msgid "Request Information"
+msgstr "Anfrageinformationen"
+
+#: admin.py:70
+msgid "Authentication Attempt"
+msgstr "Authentifizierungsversuch"
+
+#: admin.py:79
+msgid "Detection Flags"
+msgstr "Erkennungsflags"
+
+#: admin.py:91
+msgid "Request Metadata"
+msgstr "Anfrage-Metadaten"
+
+#: admin.py:108 models.py:36
+msgid "Username"
+msgstr "Benutzername"
+
+#: admin.py:115
+msgid "Risk Score"
+msgstr "Risikobewertung"
+
+#: admin.py:121
+msgid "High"
+msgstr "Hoch"
+
+#: admin.py:124
+msgid "Medium"
+msgstr "Mittel"
+
+#: admin.py:127
+msgid "Low"
+msgstr "Niedrig"
+
+#: admin.py:139
+msgid "Request Summary"
+msgstr "Anfragezusammenfassung"
+
+#: admin.py:143
+msgid "IP"
+msgstr "IP"
+
+#: admin.py:144 models.py:28
+msgid "Path"
+msgstr "Pfad"
+
+#: admin.py:145
+msgid "Method"
+msgstr "Methode"
+
+#: admin.py:153
+msgid "User-Agent"
+msgstr "Benutzeragent"
+
+#: admin.py:156
+msgid "Export selected logs to CSV"
+msgstr "Ausgewählte Protokolle als CSV exportieren"
+
+#: admin.py:202
+msgid "Archive logs older than 90 days"
+msgstr "Protokolle älter als 90 Tage archivieren"
+
+#: admin.py:213
+#, python-format
+msgid "Successfully archived %(count)d log(s) older than 90 days."
+msgstr "%(count)d Protokoll(e) älter als 90 Tage erfolgreich archiviert."
+
+#: apps.py:13
+msgid "HoneyGuard"
+msgstr "HoneyGuard"
+
+#: models.py:8
+msgid "Too Fast"
+msgstr "Zu Schnell"
+
+#: models.py:9
+msgid "Too Slow"
+msgstr "Zu Langsam"
+
+#: models.py:10
+msgid "Valid Timing"
+msgstr "Gültiges Timing"
+
+#: models.py:14
+msgid "GET"
+msgstr "GET"
+
+#: models.py:15
+msgid "POST"
+msgstr "POST"
+
+#: models.py:23
+msgid "IP Address"
+msgstr "IP-Adresse"
+
+#: models.py:25
+msgid "IP address of the requester"
+msgstr "IP-Adresse des Anfragenden"
+
+#: models.py:31
+msgid "URL path accessed"
+msgstr "Aufgerufener URL-Pfad"
+
+#: models.py:40
+msgid "Username submitted in login attempt"
+msgstr "Beim Anmeldeversuch übermittelter Benutzername"
+
+#: models.py:43
+msgid "Password"
+msgstr "Passwort"
+
+#: models.py:47
+msgid "Password submitted in login attempt"
+msgstr "Beim Anmeldeversuch übermitteltes Passwort"
+
+#: models.py:52
+msgid "User Agent"
+msgstr "Benutzeragent"
+
+#: models.py:55
+msgid "User agent string from request"
+msgstr "Benutzeragent-String aus der Anfrage"
+
+#: models.py:58
+msgid "Referer"
+msgstr "Verweisender"
+
+#: models.py:62
+msgid "HTTP referer header"
+msgstr "HTTP-Referer-Header"
+
+#: models.py:65
+msgid "Accept Language"
+msgstr "Akzeptierte Sprache"
+
+#: models.py:71
+msgid "Accept Encoding"
+msgstr "Akzeptierte Kodierung"
+
+#: models.py:77
+msgid "Request Method"
+msgstr "Anfragemethode"
+
+#: models.py:85
+msgid "Honeypot Triggered"
+msgstr "Honeypot Ausgelöst"
+
+#: models.py:88
+msgid "Whether the honeypot field was filled"
+msgstr "Ob das Honeypot-Feld ausgefüllt wurde"
+
+#: models.py:91
+msgid "Timing Issue"
+msgstr "Timing-Problem"
+
+#: models.py:95
+msgid "Type of timing anomaly detected"
+msgstr "Art der erkannten Timing-Anomalie"
+
+#: models.py:98
+msgid "Elapsed Time"
+msgstr "Verstrichene Zeit"
+
+#: models.py:101
+msgid "Time in seconds between form render and submission"
+msgstr "Zeit in Sekunden zwischen Formular-Rendering und -Übermittlung"
+
+#: models.py:106
+msgid "Raw Metadata"
+msgstr "Rohe Metadaten"
+
+#: models.py:109
+msgid "Raw request metadata for debugging"
+msgstr "Rohe Anfrage-Metadaten für Debugging"
+
+#: models.py:113
+msgid "Created At"
+msgstr "Erstellt Am"
+
+#: models.py:114
+msgid "Updated At"
+msgstr "Aktualisiert Am"
+
+#: models.py:123
+msgid "HoneyGuard Log"
+msgstr "HoneyGuard Protokoll"
+
+#: models.py:124
+msgid "HoneyGuard Logs"
+msgstr "HoneyGuard Protokolle"

@@ -52,6 +52,8 @@ include = [
 exclude = [
   "tests/**",
   "example/**",
+  "**/__pycache__",
+  "**/*.pyc",
 ]
 
 [tool.hatch.build.targets.wheel]

@@ -1,0 +1,212 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-03 13:59+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: admin.py:58
+msgid "Request Information"
+msgstr "अनुरोध जानकारी"
+
+#: admin.py:70
+msgid "Authentication Attempt"
+msgstr "प्रमाणीकरण प्रयास"
+
+#: admin.py:79
+msgid "Detection Flags"
+msgstr "पहचान फ़्लैग"
+
+#: admin.py:91
+msgid "Request Metadata"
+msgstr "अनुरोध मेटाडेटा"
+
+#: admin.py:108 models.py:36
+msgid "Username"
+msgstr "उपयोगकर्ता नाम"
+
+#: admin.py:115
+msgid "Risk Score"
+msgstr "जोखिम स्कोर"
+
+#: admin.py:121
+msgid "High"
+msgstr "उच्च"
+
+#: admin.py:124
+msgid "Medium"
+msgstr "मध्यम"
+
+#: admin.py:127
+msgid "Low"
+msgstr "निम्न"
+
+#: admin.py:139
+msgid "Request Summary"
+msgstr "अनुरोध सारांश"
+
+#: admin.py:143
+msgid "IP"
+msgstr "IP"
+
+#: admin.py:144 models.py:28
+msgid "Path"
+msgstr "पथ"
+
+#: admin.py:145
+msgid "Method"
+msgstr "विधि"
+
+#: admin.py:153
+msgid "User-Agent"
+msgstr "यूज़र-एजेंट"
+
+#: admin.py:156
+msgid "Export selected logs to CSV"
+msgstr "चयनित लॉग को CSV में निर्यात करें"
+
+#: admin.py:202
+msgid "Archive logs older than 90 days"
+msgstr "90 दिनों से पुराने लॉग संग्रहित करें"
+
+#: admin.py:213
+#, python-format
+msgid "Successfully archived %(count)d log(s) older than 90 days."
+msgstr "90 दिनों से पुराने %(count)d लॉग सफलतापूर्वक संग्रहीत किए गए।"
+
+#: apps.py:13
+msgid "HoneyGuard"
+msgstr "HoneyGuard"
+
+#: models.py:8
+msgid "Too Fast"
+msgstr "बहुत तेज"
+
+#: models.py:9
+msgid "Too Slow"
+msgstr "बहुत धीमा"
+
+#: models.py:10
+msgid "Valid Timing"
+msgstr "मान्य समय"
+
+#: models.py:14
+msgid "GET"
+msgstr "GET"
+
+#: models.py:15
+msgid "POST"
+msgstr "POST"
+
+#: models.py:23
+msgid "IP Address"
+msgstr "IP पता"
+
+#: models.py:25
+msgid "IP address of the requester"
+msgstr "अनुरोधकर्ता का IP पता"
+
+#: models.py:31
+msgid "URL path accessed"
+msgstr "URL पथ एक्सेस किया गया"
+
+#: models.py:40
+msgid "Username submitted in login attempt"
+msgstr "लॉगिन प्रयास में सबमिट किया गया उपयोगकर्ता नाम"
+
+#: models.py:43
+msgid "Password"
+msgstr "पासवर्ड"
+
+#: models.py:47
+msgid "Password submitted in login attempt"
+msgstr "लॉगिन प्रयास में सबमिट किया गया पासवर्ड"
+
+#: models.py:52
+msgid "User Agent"
+msgstr "यूज़र एजेंट"
+
+#: models.py:55
+msgid "User agent string from request"
+msgstr "अनुरोध से यूज़र एजेंट स्ट्रिंग"
+
+#: models.py:58
+msgid "Referer"
+msgstr "रेफरर"
+
+#: models.py:62
+msgid "HTTP referer header"
+msgstr "HTTP रेफरर हेडर"
+
+#: models.py:65
+msgid "Accept Language"
+msgstr "स्वीकृत भाषा"
+
+#: models.py:71
+msgid "Accept Encoding"
+msgstr "स्वीकृत एन्कोडिंग"
+
+#: models.py:77
+msgid "Request Method"
+msgstr "अनुरोध विधि"
+
+#: models.py:85
+msgid "Honeypot Triggered"
+msgstr "हनीपॉट ट्रिगर हुआ"
+
+#: models.py:88
+msgid "Whether the honeypot field was filled"
+msgstr "क्या हनीपॉट फ़ील्ड भरा गया था"
+
+#: models.py:91
+msgid "Timing Issue"
+msgstr "समय संबंधी समस्या"
+
+#: models.py:95
+msgid "Type of timing anomaly detected"
+msgstr "पता लगाई गई समय विसंगति का प्रकार"
+
+#: models.py:98
+msgid "Elapsed Time"
+msgstr "व्यतीत समय"
+
+#: models.py:101
+msgid "Time in seconds between form render and submission"
+msgstr "फ़ॉर्म रेंडर और सबमिशन के बीच सेकंड में समय"
+
+#: models.py:106
+msgid "Raw Metadata"
+msgstr "कच्चा मेटाडेटा"
+
+#: models.py:109
+msgid "Raw request metadata for debugging"
+msgstr "डिबगिंग के लिए कच्चा अनुरोध मेटाडेटा"
+
+#: models.py:113
+msgid "Created At"
+msgstr "बनाया गया"
+
+#: models.py:114
+msgid "Updated At"
+msgstr "अपडेट किया गया"
+
+#: models.py:123
+msgid "HoneyGuard Log"
+msgstr "HoneyGuard लॉग"
+
+#: models.py:124
+msgid "HoneyGuard Logs"
+msgstr "HoneyGuard लॉग"
