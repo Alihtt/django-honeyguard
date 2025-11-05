@@ -1,6 +1,8 @@
 ## django-honeyguard [![pypi version][1]][2] [![rtd][3]][4]
 
-[![license][5]][6] [![python version][7]][2] [![django version][8]][9] [![build][10]][11]
+[![license][5]][6] [![python version][7]][2] [![django version][8]][9] [![Published on Django Packages][12]][13] [![build][10]][11] 
+
+
 
 📖 Documentation: https://django-honeyguard.readthedocs.io
 
@@ -169,3 +171,8 @@ cd docs && make html
 [9]: https://www.djangoproject.com
 [10]: https://img.shields.io/github/actions/workflow/status/alihtt/django-honeyguard/tests.yml?branch=main
 [11]: https://github.com/alihtt/django-honeyguard/actions
+[12]: https://img.shields.io/badge/Published%20on-Django%20Packages-0c3c26
+[13]: https://djangopackages.org/packages/p/django-honeyguard/
+
+
+
